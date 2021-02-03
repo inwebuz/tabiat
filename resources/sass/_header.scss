@@ -1,0 +1,205 @@
+#header {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: all 0.3s;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3),  rgba(0, 0, 0, 0.1), transparent);
+        transition: all 0.2s;
+    }
+    &.fixed {
+        // background-color: rgba(0, 0, 0, 0.8);
+        &::before {
+            // opacity: 0;
+        }
+    }
+}
+.navbar-brand {
+    max-width: 100px;
+    @include media-breakpoint-up(sm) {
+        max-width: 140px;
+    }
+    @include media-breakpoint-up(md) {
+        max-width: 165px;
+    }
+}
+.header-middle {
+    position: relative;
+    .navbar {
+        padding: 5px 0;
+    }
+    .navbar-expand {
+        justify-content: space-between;
+        .navbar-nav {
+            .nav-link {
+                @include media-breakpoint-up(lg) {
+                    padding-left: 0.875rem;
+                    padding-right: 0.875rem;
+                    font-weight: 600;
+                }
+                @include media-breakpoint-up(xl) {
+                    font-size: 1.125rem;
+                }
+            }
+        }
+    }
+    .navbar-collapse {
+        flex-grow: initial;
+    }
+    .dropdown-menu {
+        min-width: 200px;
+    }
+}
+
+.navbar-light {
+    .navbar-nav {
+        .nav-link {
+            color: #000;
+            font-weight: 700;
+            font-size: 1.0625rem;
+            &.mobile-menu-switch {
+                // padding-right: 0;
+            }
+        }
+        &.top-phone {
+            white-space: nowrap;
+            .nav-link {
+                font-size: 0.875rem;
+            }
+            @include media-breakpoint-up(sm) {
+                .nav-link {
+                    font-size: 1.0625rem;
+                }
+            }
+            @include media-breakpoint-up(md) {
+                border-right: 1px solid #DFDFDF;
+                margin-right: 10px;
+                padding-right: 11px;
+                .nav-link {
+                    font-size: 1.5rem;
+                }
+
+            }
+            @include media-breakpoint-up(xl) {
+                margin-right: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 400px;
+    right: -400px;
+    background-color: #fff;
+    z-index: 1000;
+    padding: 2.5rem;
+    transition: all 0.3s;
+    &.active {
+        right: 0;
+        box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.05);
+    }
+}
+.mobile-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        a {
+            display: block;
+            color: #000;
+            font-size: 1.75rem;
+            font-weight: 500;
+            padding: 0.75rem 0;
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}
+
+.search-block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.2s;
+    .input-group {
+        > .form-control {
+            height: 113px;
+            padding: 35px 20px;
+            line-height: 41px;
+            box-shadow: none !important;
+            background-color: #F2F2F2;
+            border-color: #F2F2F2;
+        }
+        .btn {
+            height: 113px;
+            padding: 35px 45px;
+            line-height: 41px;
+        }
+    }
+    &.active {
+        max-height: 113px;
+    }
+}
+
+.language-block {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.2s;
+    text-align: center;
+    > a {
+        display: block;
+        padding: 5px 0;
+        font-weight: 700;
+    }
+    &.active {
+        max-height: 75px;
+    }
+}
+
+.cart-nav-link {
+    position: relative;
+    .cart_count {
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-weight: 700;
+        font-size: 12px;
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        background-color: $red;
+        color: #fff;
+        text-align: center;
+        line-height: 18px;
+        &:empty {
+            display: none;
+        }
+        @include media-breakpoint-up(lg) {
+            right: 5px;
+        }
+    }
+}

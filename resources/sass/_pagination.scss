@@ -1,0 +1,38 @@
+.pagination {
+    flex-wrap: wrap;
+    @include media-breakpoint-up(lg) {
+        justify-content: flex-end;
+    }
+}
+.page-link {
+    min-width: 40px;
+    border-radius: 20px !important;
+    text-align: center;
+    margin-right: 6px;
+    padding: 11px 3px;
+    line-height: 1;
+    white-space: nowrap;
+    background-color: transparent;
+    border-color: transparent;
+    &:hover {
+        background-color: $gray-100;
+        border-color: $gray-100;
+        color: $gray-700;
+    }
+}
+.page-item {
+    &.disabled {
+        .page-link {
+            border-color: transparent;
+            background-color: transparent;
+            color: $gray-300;
+        }
+    }
+    &.active {
+        .page-link {
+            background-color: $gray-100;
+            border-color: $gray-100;
+            color: $gray-700;
+        }
+    }
+}

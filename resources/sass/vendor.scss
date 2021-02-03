@@ -1,0 +1,20 @@
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap-select/sass/bootstrap-select';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~slick-carousel/slick/slick';
+// @import '~animate.css/animate.css';
+@import '~@fancyapps/fancybox/dist/jquery.fancybox.min.css';
+@import '~air-datepicker/dist/css/datepicker.css';
+@import '~aos/dist/aos.css';
+
+
+// app standard elements
+@import 'fonts';
+@import 'standard-slider';

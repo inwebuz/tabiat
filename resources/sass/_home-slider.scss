@@ -1,0 +1,236 @@
+.home-slider-block {
+    position: relative;
+}
+.home-slider-container {
+    position: relative;
+}
+.home-slider {
+    overflow: hidden;
+    position: relative;
+    &.slick-initialized {
+        overflow: visible;
+    }
+    .slick-dots {
+        display: flex;
+        text-align: center;
+        list-style: none;
+        padding: 0 15px;
+        justify-content: center;
+        margin: 0;
+        position: absolute;
+        width: 100%;
+        bottom: 1rem;
+        @include media-breakpoint-up(xl) {
+            width: auto;
+            bottom: auto;
+            top: 0;
+            right: 0;
+            flex-direction: column;
+            height: 100%;
+        }
+        li {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s;
+            button {
+                display: none;
+            }
+            &::after {
+                content: '';
+                display: block;
+                width: 4px;
+                height: 4px;
+                background-color: #fff;
+                border-radius: 50%;
+                transition: all 0.2s;
+            }
+            &:hover {
+                // background-color: rgba(255, 255, 255, 0.2);
+            }
+            &.slick-active {
+                background-color: rgba(255, 255, 255, 0.2);
+                &::after {
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+        }
+    }
+}
+.home-slide {
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: #fff;
+    video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    .container {
+        min-height: 450px;
+        position: relative;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    &::before {
+        @include before-overlay;
+    }
+    @include media-breakpoint-up(sm) {
+        .container {
+            min-height: 550px;
+        }
+    }
+    @include media-breakpoint-up(md) {
+        .container {
+            min-height: 650px;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        .container {
+            min-height: 750px;
+        }
+    }
+    @include media-breakpoint-up(xl) {
+        .container {
+            min-height: 850px;
+        }
+    }
+}
+
+.home-slide-description-top {
+    font-size: 2rem;
+    line-height: 1.125;
+    margin-bottom: 0;
+    font-weight: 700;
+    @include media-breakpoint-up(md) {
+        font-size: 3rem;
+    }
+    @include media-breakpoint-up(xl) {
+        font-size: 5.5rem;
+    }
+}
+.home-slide-description {
+    font-size: 1.25rem;
+    line-height: 1.125;
+    margin-top: .375rem;
+    font-weight: 700;
+    @include media-breakpoint-up(md) {
+        font-size: 2.125rem;
+    }
+    @include media-breakpoint-up(xl) {
+        font-size: 3.25rem;
+    }
+}
+.home-slide-button {
+    margin-top: 2.5rem;
+    font-weight: 700;
+    a {
+        font-size: 1.125rem;
+        line-height: 1.5;
+        border-bottom: 3px solid #fff;
+        display: inline-block;
+        &:hover {
+            border-color: $primary
+        }
+    }
+    @include media-breakpoint-up(md) {
+        margin-top: 3.5rem;
+    }
+    @include media-breakpoint-up(xl) {
+        margin-top: 4.5rem;
+    }
+}
+
+
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1);
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55);
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1);
+    }
+}
+.wave-wrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 110px;
+    // margin-left: calc(50% - 49vw);
+    // margin-right: calc(50% - 49vw);
+    width: auto;
+    max-width: 100%;
+    @include media-breakpoint-up(sm) {
+        height: 140px;
+    }
+
+}
+.wave-wrapper-inner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+}
+.wave-bg-top {
+    z-index: 15;
+    opacity: 0.5;
+}
+.wave-bg-middle {
+    z-index: 10;
+    opacity: 0.75;
+}
+.wave-bg-bottom {
+    z-index: 5;
+}
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+.wave-top {
+    background-size: 50% 100px;
+    background-image: url(/images/wave-top.png);
+}
+.wave-middle {
+    background-size: 50% 120px;
+    background-image: url(/images/wave-mid.png);
+}
+.wave-bottom {
+    background-size: 50% 100px;
+    background-image: url(/images/wave-bot.png);
+}
+.wave-animation {
+    .wave-top {
+        animation: move-wave 3s;
+        animation-delay: 1s;
+    }
+    .wave-middle {
+        animation: move_wave 10s linear infinite;
+    }
+    .wave-bottom {
+        animation: move_wave 15s linear infinite;
+    }
+}

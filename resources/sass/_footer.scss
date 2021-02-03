@@ -1,0 +1,181 @@
+#footer {
+    background: url(/images/bg-footer.jpg) no-repeat center bottom;
+    background-size: cover;
+    position: relative;
+}
+.footer-top {
+    //background-color: $bluedark;
+    //padding: 57px 0 89px;
+}
+.footer-middle {
+    padding: 3rem 0;
+    // border-top: 1px solid #d4d4d4;
+    @include media-breakpoint-up(md) {
+        padding: 4.3125rem 0 5.25rem;
+    }
+    .subscriber-form {
+        .form-control {
+            border-color: rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            //font-size: 1rem;
+            @include media-breakpoint-up(sm) {
+                width: 205px;
+            }
+        }
+        .btn {
+            padding-right: 1.5rem;
+            padding-left: 1.5rem;
+        }
+    }
+}
+.footer-form-header {
+    font-size: 1.375rem;
+}
+.footer-bottom {}
+.footer-bottom-content {
+    padding: 33px 0 32px;
+    border-top: 1px solid #B2B2B2;
+}
+
+.footer-description {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-phone {
+    font-size: 1.625rem;
+    font-weight: 700;
+}
+
+.footer-social {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            display: inline-block;
+            a {
+                width: 40px;
+                height: 40px;
+                display: inline-block;
+                line-height: 40px;
+                font-size: 1.125rem;
+                color: #cccccc;
+                border-radius: 50%;
+                text-align: center;
+                &:hover {
+                    // background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    background-color: rgba(255, 255, 255, 0.3);
+                }
+            }
+        }
+    }
+}
+
+.footer-contact-form {
+    .form-group {
+        margin-bottom: 10px;
+    }
+    .form-control {
+        background-color: rgba(255, 255, 255, 0.11);
+        border-color: rgba(255, 255, 255, 0.28);
+        color: #fff;
+    }
+}
+
+.footer-menu-one {
+    h6 {
+        font-weight: 400;
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        margin-bottom: 0.875rem;
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 2.5625rem;
+            font-size: 1.625rem;
+        }
+    }
+    ul {
+        li {
+            color: #fff;
+            font-size: 1.125rem;
+            position: relative;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            @include media-breakpoint-up(xl) {
+                margin-bottom: 1.25rem;
+                font-size: 1.25rem;
+            }
+            a {
+                color: #fff;
+                &:hover {
+                    color: $primary;
+                }
+            }
+            &.footer-menu-lg-text {
+                @include media-breakpoint-up(xl) {
+                    font-size: 1.625rem;
+                }
+            }
+            &.normal {
+                font-size: 1rem;
+                font-weight: normal;
+            }
+            &.with-icon {
+                position: relative;
+                i {
+                    display: none;
+                }
+                @include media-breakpoint-up(md) {
+                    padding-left: 2rem;
+                    i {
+                        display: inline-block;
+                        position: absolute;
+                        left: 0;
+                        top: 5px;
+                        width: 20px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer-icons-block {
+    display: flex;
+    //justify-content: flex-end;
+    //align-items: center;
+    @include media-breakpoint-up(lg) {
+        flex-direction: column;
+    }
+}
+.footer-icon-row {
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+.footer-icon {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    line-height: 62px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #40505A;
+    &:hover {
+        background-color: $primary;
+    }
+}
+
+.footer-menu-list {
+    //column-count: 1;
+    //@include media-breakpoint-up(md) {
+    //    column-count: 2;
+    //}
+    //@include media-breakpoint-up(lg) {
+    //    column-count: 3;
+    //}
+    //@include media-breakpoint-up(xl) {
+    //    column-count: 4;
+    //}
+}

@@ -1,0 +1,137 @@
+$white:    #fff;
+$gray-100: #f2f2f2;
+$gray-200: #eeeeee;
+$gray-300: #dddddd;
+$gray-400: #cccccc;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #475055;
+$gray-800: #333333;
+$gray-900: #222222;
+$black:    #000;
+
+$bluedark: #102431;
+$bluegray: #E5F4F9;
+$blue:    #1E5981;
+$blue2:   #2e6f9a;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #e83e8c;
+$red:     #FF372E;
+$reddark: #dd1e19;
+$orange:  #F07D0A;
+$yellow:  #FFCB07;
+$green:   #8BC34C;
+$greenmedium:   #77b139;
+$teal:    #20c997;
+$cyan:    #17a2b8;
+
+$primary:       $greenmedium;
+$secondary:     $black;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-800;
+
+$body-bg:                   #fff;
+$body-color:                $gray-800;
+
+$headings-font-weight: 600;
+
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                              $primary;
+$link-decoration:                         none;
+$link-hover-decoration:                   none;
+$link-hover-color:                        darken($primary, 15%);
+
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 540px,
+  md: 720px,
+  lg: 1080px,
+  xl: 1430px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 1080px,
+  xl: 1430px
+);
+
+$border-radius:               0; //5px;
+$border-radius-lg:            0; //6px;
+$border-radius-sm:            0; //4px;
+
+$font-size-base:              1rem;
+$line-height-base:              1.5;
+
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Gilroy", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-base:            $font-family-sans-serif;
+
+
+$input-btn-padding-y:         0.5rem;
+$input-btn-padding-x:         1rem;
+$input-btn-padding-y-lg:      0.75rem;
+$input-btn-padding-x-lg:      1.5rem;
+$input-btn-padding-y-sm:      0.25rem;
+$input-btn-padding-x-sm:      0.75rem;
+
+$input-btn-focus-box-shadow:  none;
+$custom-select-focus-box-shadow: none;
+
+$btn-border-radius:               $border-radius;
+$btn-border-radius-lg:            $border-radius-lg;
+$btn-border-radius-sm:            $border-radius-sm;
+
+$btn-padding-y:         0.5rem;
+$btn-padding-x:         1.5rem;
+$btn-padding-y-lg:      0.75rem;
+$btn-padding-x-lg:      2rem;
+$btn-padding-y-sm:      0.25rem;
+$btn-padding-x-sm:      0.75rem;
+
+$dropdown-item-padding-y:           .5rem;
+$dropdown-item-padding-x:           1.5rem;
+
+
+$input-bg:                              $gray-100;
+$input-disabled-bg:                     $gray-300;
+
+$input-color:                           $gray-900;
+$input-border-color:                    $gray-100;
+$input-box-shadow:                      none;
+
+$input-focus-bg:                        $input-bg;
+$input-focus-color:                     $input-color;
+
+$input-placeholder-color:               $gray-600;
+
+$input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+$pagination-color:                  $black;
+$pagination-bg:                     $white;
+$pagination-border-color:           $white;
+
+$pagination-hover-color:            $gray-900;
+$pagination-hover-bg:               $gray-200;
+$pagination-hover-border-color:     $gray-200;
+
+$breadcrumb-padding-y: 0;
+$breadcrumb-padding-x: 0;
+$breadcrumb-bg: transparent;
+
+$caret-width:                 .3em;
+$caret-vertical-align:        .2em;
+$caret-spacing:               .45em;
+
+// font awesome 5
+$fa-font-path:         "../fonts";
