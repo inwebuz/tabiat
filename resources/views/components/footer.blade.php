@@ -1,4 +1,127 @@
-<footer id="footer">
+<footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row footer-top__wrap">
+                <div class="col-lg-4 col-sm-6 footer-contacts">
+                    <ul>
+                        <li>
+                            <svg width="40" height="40">
+                                <use xlink:href="#phone"></use>
+                            </svg>
+                            <div>
+                                <a href="tel:998911044242" class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">+99891 104 42 42</a>
+                                <a href="tel:998974289977" class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">+99897 428 99 77</a>
+                                <a href="tel:998974289902" class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">+99897 428 99 02</a>
+                            </div>
+                        </li>
+                        <li>
+                            <svg width="40" height="40">
+                                <use xlink:href="#mail"></use>
+                            </svg>
+                            <a href="mailto:info@gozaltabiat1.uz" class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">info@gozaltabiat1.uz</a>
+                        </li>
+                        <li>
+                            <svg width="40" height="40">
+                                <use xlink:href="#marker"></use>
+                            </svg>
+                            <a href="java-script:" class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">Республика Узбекистан, г. Ташкент, ул. Сайрам 174, 100170</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-sm-6 footer-navbar">
+                    <ul>
+                        <li class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                            <a href="#">Главная</a>
+                        </li>
+                        <li class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                            <a href="#">О компании</a>
+                        </li>
+                        <li class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">
+                            <a href="#">Удобрения</a>
+                        </li>
+                        <li class="fadeInUp wow" data-wow-delay=".5s" data-wow-duration=".5s">
+                            <a href="#">Семяна</a>
+                        </li>
+                        <li class="fadeInUp wow" data-wow-delay=".6s" data-wow-duration=".5s">
+                            <a href="#">Новости</a>
+                        </li>
+                        <li class="fadeInUp wow" data-wow-delay=".7s" data-wow-duration=".5s">
+                            <a href="#">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 col-sm-12 footer-feedback">
+                    <form class="form-feedback">
+                        <h5 class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">Форма обратной связи</h5>
+                        <div class="form-content">
+                            <div class="form-group fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                                <label for="c_name">
+                                    <input type="text" id="c_name" name="c_name" placeholder="Ваше имя">
+                                </label>
+                            </div>
+                            <div class="form-group fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                                <label for="c_phone">
+                                    <input type="text" id="c_phone" name="c_phone" placeholder="Ваш номер">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">
+                            <label for="c_maesage">
+                                <textarea name="c_maesage" id="c_maesage" cols="5"
+                                        placeholder="Сообщение"></textarea>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn bounceIn wow" data-wow-delay=".8s">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row footer-bottom__wrap">
+                <div class="col-lg-4 copyright-block">
+                    <p class="fadeInRightBig wow" data-wow-delay=".2s" data-wow-duration=".5s">2021 © Все права защищены. OOO «GO’ZAL TABIAT»</p>
+                </div>
+                <div class="col-lg-4 footer-social__list">
+                    <ul>
+                        <li class="fadeInLeft wow" data-wow-delay=".8s" data-wow-duration=".5s">
+                            <a href="#">
+                                <svg width="20" height="20">
+                                    <use xlink:href="#telegram"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="fadeInLeft wow" data-wow-delay=".9s" data-wow-duration=".5s">
+                            <a href="#">
+                                <svg width="20" height="20">
+                                    <use xlink:href="#facebook"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="fadeInLeft wow" data-wow-delay="1s" data-wow-duration=".5s">
+                            <a href="#">
+                                <svg width="20" height="20">
+                                    <use xlink:href="#instagram"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 footer-logo">
+                    <div class="footer-logo fadeInLeftBig wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                        <p>Разработка сайта —</p>
+                        <img src="img/icons/footer-logo.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="overlay"></div>
+
+{{-- <footer id="footer">
     <div class="bg-pattern-border"></div>
     <div class="footer-top"></div>
     <div class="footer-middle text-center text-lg-left">
@@ -105,9 +228,9 @@
                 @csrf
                 <input type="hidden" name="product_id" value="">
 
-                {{--                <input type="hidden" name="category_id" value="">--}}
-                {{--                <input type="hidden" name="crop_category_id" value="">--}}
-                {{--                <input type="hidden" name="crop_id" value="">--}}
+                <input type="hidden" name="category_id" value="">
+                <input type="hidden" name="crop_category_id" value="">
+                <input type="hidden" name="crop_id" value="">
 
                 <div class="modal-body">
                     <h5 class="modal-title" id="contact-modal-label">
@@ -157,4 +280,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}

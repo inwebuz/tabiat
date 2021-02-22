@@ -1,15 +1,124 @@
-<header id="header">
+<nav class="burger-menu">
+    <div class="burger-menu__wrap">
+        <ul class="burger-menu__list">
+            @foreach($headerMenuItems as $key => $item)
+                <li>
+                    <a href="{{ $item->url }}">{{ $item->name }}</a>
+                </li>
+                @if($key == 0)
+                    @foreach($categories as $key => $category)
+                        <li>
+                            <a href="{{ $category->url }}">{{ $category->name }}</a>
+                        </li>
+                    @endforeach
+                @endif
+            @endforeach
+        </ul>
+        @php
+            $phone = setting('contact.phone');
+            $phone2 = setting('contact.phone2');
+            $phone3 = setting('contact.phone3');
+        @endphp
+        @if ($phone)
+            <a href="tel:{{ Helper::phone($phone) }}" class="call-link">{{ $phone }}</a>
+        @endif
+        @if ($phone2)
+            <a href="tel:{{ Helper::phone($phone2) }}" class="call-link">{{ $phone2 }}</a>
+        @endif
+        @if ($phone3)
+            <a href="tel:{{ Helper::phone($phone3) }}" class="call-link">{{ $phone3 }}</a>
+        @endif
+    </div>
+</nav>
+
+<header class="header">
+    <div class="container">
+        <div class="header-wrap">
+            <div class="logo"><a href="{{ route('home') }}"><img src="img/logo.png" alt=""></a></div>
+            <nav class="navbar">
+                <div class="navbar-content">
+                    <ul class="nav-list">
+                        @foreach($headerMenuItems as $key => $item)
+                            <li class="nav-item">
+                                <a href="{{ $item->url }}" class="nav-link hover-line">{{ $item->name }}</a>
+                            </li>
+                            @if($key == 0)
+                                @foreach($categories as $key => $category)
+                                    <li class="nav-item">
+                                        <a href="{{ $category->url }}" class="nav-link hover-line">{{ $category->name }}</a>
+                                    </li>
+                                @endforeach
+                            @endif
+                        @endforeach
+                        @if ($phone)
+                            <li class="nav-item dropdown">
+                                <a href="tel:{{ Helper::phone($phone) }}" class="nav-link hover-line dropdown-toggle" data-toggle="dropdown" >{{ $phone }}</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a href="tel:{{ Helper::phone($phone) }}" class="dropdown-item">{{ $phone }}</a>
+                                    @if ($phone2)
+                                        <a href="tel:{{ Helper::phone($phone2) }}" class="dropdown-item">{{ $phone2 }}</a>
+                                    @endif
+                                    @if ($phone3)
+                                        <a href="tel:{{ Helper::phone($phone3) }}" class="dropdown-item">{{ $phone3 }}</a>
+                                    @endif
+                                </div>
+                            </li>
+                        @endif
+                    </ul>
+
+                </div>
+                <div class="header-right__content">
+                    <a href="java-script:" class="search-link">
+                        <svg width="18" height="18">
+                            <use xlink:href="#search"></use>
+                        </svg>
+                    </a>
+                    <div class="search-field-block">
+                        <div class="input-field">
+                            <label for="a_search" class="input-field-search-block">
+                                <svg width="15" height="15">
+                                    <use xlink:href="#search"></use>
+                                </svg>
+                                <input type="text" id="a_search" name="a_search">
+                            </label>
+                            <div class="close-btn">
+                                <svg width="12" height="12">
+                                    <use xlink:href="#close"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="language-block" class="dropdown mr-4">
+                        <a href="{{ $switcher->getActive()->url }}" class="text-uppercase dropdown-toggle white-link" data-toggle="dropdown">
+                            {{ $switcher->getActive()->key }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            @foreach ($switcher->getValues() as $item)
+                                <li>
+                                    <a href="{{ $item->url }}" class="dropdown-item text-uppercase">{{ $item->key }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <div class="burger">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+{{-- <header id="header">
     <div class="header-middle">
         <div class="container">
             <nav class="navbar navbar-expand navbar-dark">
                 <a class="navbar-brand" href="{{ route('home') }}">
                     <img src="{{ $logo }}" alt="{{ setting('site.title') }}" class="img-fluid">
                 </a>
-                    @php
-                        $phone = setting('contact.phone');
-                        $phone2 = setting('contact.phone2');
-                        $phone3 = setting('contact.phone3');
-                    @endphp
+
                     <div class="collapse navbar-collapse" id="header-middle-navbar">
                         <ul class="navbar-nav d-none d-lg-flex">
                             @foreach($headerMenuItems as $key => $item)
@@ -22,11 +131,11 @@
                                         <a class="nav-link dropdown-toggle" href="{{ $category->url }}" data-toggle="dropdown">{{ $category->name }}</a>
                                         <ul class="dropdown-menu">
                                             @foreach($item->getItems as $subItem)
-                                                {{-- @if(!$categoryChild->hasItems()) --}}
+                                                @if(!$categoryChild->hasItems())
                                                     <li>
                                                         <a class="dropdown-item" href="{{ $subItem->url }}">{{ $subItem->name }}</a>
                                                     </li>
-                                                {{-- @else
+                                                @else
                                                     <li class="sub-dropdown">
                                                         <a class="dropdown-item sub-dropdown-toggle" href="{{ $item->url }}">{{ $item->name }} <i class="fa fa-angle-down"></i></a>
                                                         <ul class="dropdown-menu sub-dropdown-menu">
@@ -37,7 +146,7 @@
                                                             @endforeach
                                                         </ul>
                                                     </li>
-                                                @endif --}}
+                                                @endif
                                             @endforeach
                                         </ul>
                                     </li>
@@ -76,12 +185,12 @@
                                 <img src="{{ asset('images/icons/search.png') }}" alt="{{ __('main.search') }}">
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('cart.index') }}" class="nav-link cart-nav-link">
                                 <img src="{{ asset('images/icons/cart.png') }}" alt="{{ __('main.cart') }}">
                                 <span class="cart_count">{{ $cartQuantity > 0 ? $cartQuantity : '' }}</span>
                             </a>
-                        </li> --}}
+                        </li>
                         <li class="nav-item position-relative">
                             <span class="nav-link text-uppercase language-block-switch cursor-pointer">
                                 {{ $switcher->getActive()->key }}
@@ -121,8 +230,6 @@
     </form>
 </div>
 
-
-
 <div class="mobile-menu">
     <div class="mobile-menu-container">
         <ul class="mobile-menu-list">
@@ -139,4 +246,4 @@
             </li>
         </ul>
     </div>
-</div>
+</div> --}}

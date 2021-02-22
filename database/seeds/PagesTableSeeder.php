@@ -39,6 +39,16 @@ class PagesTableSeeder extends Seeder
             'slug' => 'about',
             'order' => 10,
             'show_in' => 3,
+            'body' => '<h2 class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">«GO’ZAL TABIAT»</h2>
+            <p class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s"><b>Компания была создана в 2019 году</b> для поддержки развития сельского хозяйства, в
+                частности для поддержки тепличных хозяйств, обеспечения их высокотехнологичными <span>семенами</span>,
+                удобрениями и тепличными системами под ключ от ведущих компаний мира.</p>
+            <p class="fadeInUp wow" data-wow-delay=".5s" data-wow-duration=".5s"><b>Компания занимается продажей семян, </b><span>удобрений, </span>биопрепаратов, пестицидов
+                и теплиц. Мы были созданы с участием иностранного инвестора...</p>
+            <div class="eco-friendly">
+                <img class="zoomIn wow" data-wow-delay=".8s" data-wow-duration=".5s" src="/img/about/image2.png" alt="">
+                <p class="fadeInRight wow" data-wow-delay=".5s" data-wow-duration=".3s">Экологически чистая продукция для оптимального питания растений</p>
+            </div>'
         ]);
         $page = $page->translate('uz');
         $page->name = 'Kompaniya haqida';
