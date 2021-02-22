@@ -133,7 +133,13 @@ a.hover-line:hover:before {
     color: #fff;
 }
 .white-link:hover {
-    color: #aeff4f;
+    color: #77b139;
+}
+.black-link {
+    color: #000;
+}
+.black-link:hover {
+    color: #77b139;
 }
 
 svg,
@@ -866,6 +872,7 @@ p span {
     min-height: 720px;
     position: relative;
     overflow: hidden;
+    height: 100vh;
 }
 .hero:before {
     background: url("../img/hero/top-bg.png") no-repeat center/cover;
@@ -1098,7 +1105,7 @@ p span {
     top: 0;
 }
 .footer-top {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 .footer-top__wrap {
     position: relative;
@@ -1301,15 +1308,20 @@ p span {
     -ms-flex-pack: end;
     justify-content: flex-end;
 }
-.footer-logo p {
+.footer-logo a {
     font-size: 16px;
     line-height: 1.2;
     color: #ccc;
     margin-bottom: 0;
+    white-space: nowrap;
+}
+.footer-logo a:hover {
+    color: #aeff4f;
 }
 .footer-logo img {
     max-width: 20px;
-    margin-left: 10px;
+    margin-left: 4px;
+
 }
 
 /*media-queries*/
@@ -1362,8 +1374,8 @@ p span {
         font-size: 16px;
     }
     .hero {
-        height: 100vh;
-        min-height: initial;
+        /* height: 100vh;
+        min-height: initial; */
     }
     .hero-sub__title {
         font-size: 28px;

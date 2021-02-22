@@ -33,14 +33,14 @@ class DatabaseSeeder extends Seeder
 
             // GendersTableSeeder::class,
             CategoriesTableSeeder::class,
-            // BrandsTableSeeder::class,
+            BrandsTableSeeder::class,
             // RubricsTableSeeder::class,
 
             // AttributesTableSeeder::class,
             // AttributeValuesTableSeeder::class,
 
             ProductsTableSeeder::class,
-            // PublicationsTableSeeder::class,
+            PublicationsTableSeeder::class,
 
             // PricelistsTableSeeder::class,
 

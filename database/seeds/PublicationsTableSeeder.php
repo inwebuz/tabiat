@@ -20,6 +20,7 @@ class PublicationsTableSeeder extends Seeder
 
         factory(Publication::class, 10)->create([
             'user_id' => 3,
+            'type' => Publication::TYPE_NEWS,
         ]);
         factory(Publication::class, 50)->create();
     }

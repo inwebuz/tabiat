@@ -19,6 +19,23 @@ class PagesTableSeeder extends Seeder
             'slug' => 'home',
             'order' => 1,
             'show_in' => 2,
+            'body' => '<p class="sub-title fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">Миссия</p>
+            <h2 class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">Ваш успех - это наша ценность!</h2>
+            <p class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">OOO «GO’ZAL TABIAT» был создан в 2019 году для поддержки развития сельского хозяйства, в
+                частности
+                для поддержки тепличных хозяйств, обеспечения их высокотехнологичными семенами, удобрениями
+                и
+                тепличными системами под ключ от ведущих компаний мира. Компания занимается продажей семян,
+                удобрений, биопрепаратов, пестицидов и теплиц. Мы были созданы с участием иностранного
+                инвестора,
+                который имеет огромный и многолетний опыт в сфере выращивания фруктово-овощных культур как с
+                применением высокотехнологичных тепличных систем, так и открытых хозяйствах в нескольких
+                странах с
+                площадью около 1000 Га.</p>
+            <p class="fadeInUp wow" data-wow-delay=".5s" data-wow-duration=".5s">OOO «GO’ZAL TABIAT», официальный представитель Монсанто (Seminis, DeRuiter), Doktor Tarsa,
+                Buyskiy,
+                Syngenta. <br> Продукция импортируется из Нидерландов, Турции, России, США, Шри-ланка и
+                других стран.</p>',
         ]);
         $page = $page->translate('uz');
         $page->name = 'Bosh sahifa';

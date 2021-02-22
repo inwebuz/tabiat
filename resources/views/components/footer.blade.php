@@ -9,45 +9,60 @@
                                 <use xlink:href="#phone"></use>
                             </svg>
                             <div>
-                                <a href="tel:998911044242" class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">+99891 104 42 42</a>
-                                <a href="tel:998974289977" class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">+99897 428 99 77</a>
-                                <a href="tel:998974289902" class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">+99897 428 99 02</a>
+                                @php
+                                    $phone = setting('contact.phone');
+                                    $phone2 = setting('contact.phone2');
+                                    $phone3 = setting('contact.phone3');
+                                    $email = setting('contact.email');
+                                @endphp
+                                @if ($phone)
+                                    <a href="tel:{{ Helper::phone($phone) }}" class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">{{ $phone }}</a>
+                                @endif
+                                @if ($phone2)
+                                    <a href="tel:{{ Helper::phone($phone2) }}" class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">{{ $phone2 }}</a>
+                                @endif
+                                @if ($phone3)
+                                    <a href="tel:{{ Helper::phone($phone3) }}" class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">{{ $phone3 }}</a>
+                                @endif
                             </div>
                         </li>
                         <li>
                             <svg width="40" height="40">
                                 <use xlink:href="#mail"></use>
                             </svg>
-                            <a href="mailto:info@gozaltabiat1.uz" class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">info@gozaltabiat1.uz</a>
+                            <a href="mailto:{{ $email }}" class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">{{ $email }}</a>
                         </li>
                         <li>
                             <svg width="40" height="40">
                                 <use xlink:href="#marker"></use>
                             </svg>
-                            <a href="java-script:" class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">Республика Узбекистан, г. Ташкент, ул. Сайрам 174, 100170</a>
+                            <a href="{{ route('contacts') }}" class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">{{ $address }}</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-sm-6 footer-navbar">
                     <ul>
-                        <li class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
-                            <a href="#">Главная</a>
-                        </li>
-                        <li class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
-                            <a href="#">О компании</a>
-                        </li>
-                        <li class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">
-                            <a href="#">Удобрения</a>
-                        </li>
-                        <li class="fadeInUp wow" data-wow-delay=".5s" data-wow-duration=".5s">
-                            <a href="#">Семяна</a>
-                        </li>
-                        <li class="fadeInUp wow" data-wow-delay=".6s" data-wow-duration=".5s">
-                            <a href="#">Новости</a>
-                        </li>
-                        <li class="fadeInUp wow" data-wow-delay=".7s" data-wow-duration=".5s">
-                            <a href="#">Контакты</a>
-                        </li>
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach($footerMenuItems as $key => $item)
+                            @php
+                                $i++;
+                            @endphp
+                            <li class="fadeInUp wow" data-wow-delay=".{{ $i }}s" data-wow-duration=".5s">
+                                <a href="{{ $item->url }}">{{ $item->name }}</a>
+                            </li>
+                            @if($key == 0)
+                                @foreach($categories as $key => $category)
+                                    @php
+                                        $i++;
+                                    @endphp
+                                    <li class="fadeInUp wow" data-wow-delay=".{{ $i }}s" data-wow-duration=".5s">
+                                        <a href="{{ $category->url }}">{{ $category->name }}</a>
+                                    </li>
+                                @endforeach
+                            @endif
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-lg-5 col-sm-12 footer-feedback">
@@ -80,7 +95,7 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row footer-bottom__wrap">
-                <div class="col-lg-4 copyright-block">
+                <div class="col-lg-4 copyright-block d-flex align-items-center">
                     <p class="fadeInRightBig wow" data-wow-delay=".2s" data-wow-duration=".5s">2021 © Все права защищены. OOO «GO’ZAL TABIAT»</p>
                 </div>
                 <div class="col-lg-4 footer-social__list">
@@ -110,8 +125,10 @@
                 </div>
                 <div class="col-lg-4 footer-logo">
                     <div class="footer-logo fadeInLeftBig wow" data-wow-delay=".2s" data-wow-duration=".5s">
-                        <p>Разработка сайта —</p>
-                        <img src="img/icons/footer-logo.png" alt="">
+                        <a href="https://inweb.uz" target="_blank" class="d-inline-block">
+                            Разработка —
+                            <img src="img/icons/footer-logo.png" alt="">
+                        </a>
                     </div>
                 </div>
             </div>

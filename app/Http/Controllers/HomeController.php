@@ -7,6 +7,7 @@ use App\Category;
 use App\Helpers\Helper;
 use App\Page;
 use App\Product;
+use App\Publication;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,6 +31,7 @@ class HomeController extends Controller
     {
         $page = Page::findOrFail(1)->translate();
         $pageAbout = Page::find(3)->translate();
+        $pageCatalog = Page::find(4)->translate();
 
         $slides = Helper::banners('slide');
         if ($slides) {
@@ -38,10 +40,15 @@ class HomeController extends Controller
         $slide = $slides->first();
 
         $brands = Brand::active()->latest()->take(20)->get()->translate();
-        $featuredProducts = Product::active()->featured()->latest()->take(3)->get()->translate();
+        $featuredProducts = Product::active()->featured()->latest()->take(12)->get()->translate();
         $homeCategories = Helper::categories('home');
 
-        return view('home', compact('page', 'pageAbout', 'slide', 'brands', 'featuredProducts', 'homeCategories'));
+        $news = Publication::active()->news()->latest()->take(3)->get();
+        if (!$news->isEmpty()) {
+            $news = $news->translate();
+        }
+
+        return view('home', compact('page', 'pageAbout', 'pageCatalog', 'slide', 'brands', 'featuredProducts', 'homeCategories', 'news'));
     }
 
     public function latestProducts(Category $category)

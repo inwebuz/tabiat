@@ -19,45 +19,39 @@ class BrandsTableSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         factory(Brand::class)->create([
-            'name' => 'AquaDabra',
-            'slug' => Str::slug('AquaDabra'),
-            'image' => 'brands/AquaDabra.jpg',
+            'name' => '1',
+            'slug' => Str::slug('1'),
+            'image' => 'brands/logo1.png',
         ]);
 
         factory(Brand::class)->create([
-            'name' => 'Aquabeads',
-            'slug' => Str::slug('Aquabeads'),
-            'image' => 'brands/Aquabeads.jpg',
+            'name' => '2',
+            'slug' => Str::slug('2'),
+            'image' => 'brands/logo2.png',
         ]);
 
         factory(Brand::class)->create([
-            'name' => 'Bioblo',
-            'slug' => Str::slug('Bioblo'),
-            'image' => 'brands/Bioblo.jpg',
+            'name' => '3',
+            'slug' => Str::slug('3'),
+            'image' => 'brands/logo3.png',
         ]);
 
         factory(Brand::class)->create([
-            'name' => 'Boomtrix',
-            'slug' => Str::slug('Boomtrix'),
-            'image' => 'brands/Boomtrix.jpg',
+            'name' => '4',
+            'slug' => Str::slug('4'),
+            'image' => 'brands/logo4.png',
         ]);
 
         factory(Brand::class)->create([
-            'name' => 'Bruder',
-            'slug' => Str::slug('Bruder'),
-            'image' => 'brands/Bruder.jpg',
+            'name' => '5',
+            'slug' => Str::slug('5'),
+            'image' => 'brands/logo5.png',
         ]);
 
         factory(Brand::class)->create([
-            'name' => 'Bruder 2',
-            'slug' => Str::slug('Bruder 2'),
-            'image' => 'brands/Bruder.jpg',
-        ]);
-
-        factory(Brand::class)->create([
-            'name' => 'Bruder 3',
-            'slug' => Str::slug('Bruder 3'),
-            'image' => 'brands/Bruder.jpg',
+            'name' => '6',
+            'slug' => Str::slug('6'),
+            'image' => 'brands/logo6.png',
         ]);
     }
 }

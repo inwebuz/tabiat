@@ -18,7 +18,7 @@ return [
         'attribute_values'  => false,
         'audios'            => false,
         'banners'           => true,
-        'brands'            => false,
+        'brands'            => true,
         'c_v_s'             => false,
         'categories'        => true,
         'companies'         => false,

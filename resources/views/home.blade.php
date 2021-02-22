@@ -15,7 +15,7 @@
             <div class="container">
                 <div class="row hero-wrap">
                     <div class="col-lg-12">
-                        <h1 class="fadeInUp wow" data-wow-delay="1s" data-wow-duration=".3s">Семяна и убобрения</h1>
+                        <h1 class="fadeInUp wow" data-wow-delay="1s" data-wow-duration=".3s">Семяна и удобрения</h1>
                         <p class="hero-sub__title fadeInUp wow" data-wow-delay="1.2s" data-wow-duration=".3s">для сельского хозяйства</p>
                         <a href="#" class="down-link fadeInUp wow" data-wow-delay="1.4s" data-wow-duration=".3s">Скачать каталог</a>
                     </div>
@@ -41,102 +41,30 @@
 
         <section class="catalog bg-light">
             <div class="container">
-                <p class="sub-title text-center fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">Весь каталог</p>
+                <p class="sub-title text-center fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                    <a href="{{ $pageCatalog->url }}">{{ $pageCatalog->name }}</a>
+                </p>
                 <h2 class="text-center fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">Наша продукция</h2>
                 <div class="row catalog-wrap">
                     <div class="col-lg-12">
                         <div class="catalog-swiper">
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide fadeInRightBig wow" data-wow-delay=".2s" data-wow-duration=".5s">
-                                        <div class="catalog-item">
-                                            <div class="catalog-item__img">
-                                                <img src="img/catalog/01.jpg" alt="">
-                                            </div>
-                                            <div class="catalog-item__body">
-                                                <h4>МИРАБЕЛЛ F1</h4>
-                                                <p>Рекомендуется для выращивания в стеклянных и пленочных теплицах</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide fadeInRightBig wow" data-wow-delay=".4s" data-wow-duration=".5s">
-                                        <div class="catalog-item">
-                                            <div class="catalog-item__img">
-                                                <img src="img/catalog/02.jpg" alt="">
-                                            </div>
-                                            <div class="catalog-item__body">
-                                                <h4>МАРИНДА F1</h4>
-                                                <p>Рекомендуется для выращивания в открытом грунте</p>
+                                    @foreach ($featuredProducts as $key => $product)
+                                        <div class="swiper-slide fadeInRightBig wow" @if($key < 5) data-wow-delay=".{{ $key + 1 }}s" data-wow-duration=".5s" @endif>
+                                            <div class="catalog-item">
+                                                <div class="catalog-item__img">
+                                                    <a href="{{ $product->url }}">
+                                                        <img src="img/catalog/01.jpg" alt="" class="img-fluid">
+                                                    </a>
+                                                </div>
+                                                <div class="catalog-item__body">
+                                                    <h4><a href="#" class="black-link">МИРАБЕЛЛ F1</a></h4>
+                                                    <p>Рекомендуется для выращивания в стеклянных и пленочных теплицах</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="swiper-slide fadeInLeftBig wow" data-wow-delay=".2s" data-wow-duration=".5s">
-                                        <div class="catalog-item">
-                                            <div class="catalog-item__img">
-                                                <img src="img/catalog/03.jpg" alt="">
-                                            </div>
-                                            <div class="catalog-item__body">
-                                                <h4>КЛОДИН F1</h4>
-                                                <p>Рекомендуется для выращивания в стеклянных и пленочных теплицах</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide fadeInLeftBig wow" data-wow-delay=".4s" data-wow-duration=".5s">
-                                        <div class="catalog-item">
-                                            <div class="catalog-item__img">
-                                                <img src="img/catalog/04.jpg" alt="">
-                                            </div>
-                                            <div class="catalog-item__body">
-                                                <h4>МАТИССИМО F1</h4>
-                                                <p>Рекомендуется для выращивания в открытом грунте</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="swiper-slide">
-                                        <div class="catalog-item">
-                                            <div class="catalog-item__img">
-                                                <img src="img/catalog/01.jpg" alt="">
-                                            </div>
-                                            <div class="catalog-item__body">
-                                                <h4>МИРАБЕЛЛ F1</h4>
-                                                <p>Рекомендуется для выращивания в стеклянных и пленочных теплицах</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="catalog-item">
-                                            <div class="catalog-item__img">
-                                                <img src="img/catalog/02.jpg" alt="">
-                                            </div>
-                                            <div class="catalog-item__body">
-                                                <h4>МАРИНДА F1</h4>
-                                                <p>Рекомендуется для выращивания в открытом грунте</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="catalog-item">
-                                            <div class="catalog-item__img">
-                                                <img src="img/catalog/03.jpg" alt="">
-                                            </div>
-                                            <div class="catalog-item__body">
-                                                <h4>КЛОДИН F1</h4>
-                                                <p>Рекомендуется для выращивания в стеклянных и пленочных теплицах</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="catalog-item">
-                                            <div class="catalog-item__img">
-                                                <img src="img/catalog/04.jpg" alt="">
-                                            </div>
-                                            <div class="catalog-item__body">
-                                                <h4>МАТИССИМО F1</h4>
-                                                <p>Рекомендуется для выращивания в открытом грунте</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="swiper-button-prev">
@@ -157,71 +85,34 @@
 
         <section class="news">
             <div class="container">
-                <p class="sub-title text-center fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">Все новости</p>
-                <h2 class="text-center fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">Новости компании</h2>
+                <p class="sub-title text-center fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                    <a href="{{ route('news') }}">{{ __('main.all_news') }}</a>
+                </p>
+                <h2 class="text-center fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">{{ __('main.news') }}</h2>
                 <div class="row news-wrap">
-                    <div class="col-lg-4 col-sm-6 fadeInRightBig wow" data-wow-delay=".2s" data-wow-duration=".5s">
-                        <div class="news-item" style="background-image: url('./img/news/01.jpg')">
-                            <p class="date">25 января, 2021</p>
-                            <h5>Агровита для плодовых деревьев и ягодных культур – комплексное</h5>
-                            <a href="#" class="btn btn-out">Подробнее</a>
+                    @foreach ($news as $key => $publication)
+                        <div class="col-lg-4 col-sm-6 fadeInRightBig wow" data-wow-delay=".{{ $key + 2 }}s" data-wow-duration=".5s">
+                            <div class="publication-one">
+                                <a href="{{ $publication->url }}" class="news-item" style="background-image: url('./img/news/01.jpg')">
+                                    <p class="date">{{ Helper::formatDate($publication->getModel()->created_at, true) }}</p>
+                                    <h5>{{ $publication->name }}</h5>
+                                    <span class="btn btn-out">{{ __('main.view_more') }}</span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 fadeInUpBig wow" data-wow-delay=".3s" data-wow-duration=".5s">
-                        <div class="news-item" style="background-image: url('./img/news/02.jpg')">
-                            <p class="date">7 января, 2021</p>
-                            <h5>Увеличивает содержание витаминов и сахаров в плодах, препятствует</h5>
-                            <a href="#" class="btn btn-out">Подробнее</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 fadeInLeftBig wow" data-wow-delay=".2s" data-wow-duration=".5s">
-                        <div class="news-item" style="background-image: url('./img/news/03.jpg')">
-                            <p class="date">18 декабря, 2020</p>
-                            <h5>Обеспечивать широкое распространение устойчивых</h5>
-                            <a href="#" class="btn btn-out">Подробнее</a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="row news-wrap">
                     <div class="col-lg-12">
-                        <p class="sub-title fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">Миссия</p>
-                        <h2 class="fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">Ваш успех - это наша ценность!</h2>
-                        <p class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">OOO «GO’ZAL TABIAT» был создан в 2019 году для поддержки развития сельского хозяйства, в
-                            частности
-                            для поддержки тепличных хозяйств, обеспечения их высокотехнологичными семенами, удобрениями
-                            и
-                            тепличными системами под ключ от ведущих компаний мира. Компания занимается продажей семян,
-                            удобрений, биопрепаратов, пестицидов и теплиц. Мы были созданы с участием иностранного
-                            инвестора,
-                            который имеет огромный и многолетний опыт в сфере выращивания фруктово-овощных культур как с
-                            применением высокотехнологичных тепличных систем, так и открытых хозяйствах в нескольких
-                            странах с
-                            площадью около 1000 Га.</p>
-                        <p class="fadeInUp wow" data-wow-delay=".5s" data-wow-duration=".5s">OOO «GO’ZAL TABIAT», официальный представитель Монсанто (Seminis, DeRuiter), Doktor Tarsa,
-                            Buyskiy,
-                            Syngenta. <br> Продукция импортируется из Нидерландов, Турции, России, США, Шри-ланка и
-                            других стран.</p>
+                        {!! $page->body !!}
                     </div>
                 </div>
                 <div class="row logo-items">
-                    <div class="col-lg-2 col-sm-4 col-6 fadeInRightBig wow" data-wow-delay=".2s" data-wow-duration=".5s">
-                        <img src="img/news/logo1.png" alt="">
-                    </div>
-                    <div class="col-lg-2 col-sm-4 col-6 fadeInRightBig wow" data-wow-delay=".4s" data-wow-duration=".5s">
-                        <img src="img/news/logo2.png" alt="">
-                    </div>
-                    <div class="col-lg-2 col-sm-4 col-6 fadeInRightBig wow" data-wow-delay=".6s" data-wow-duration=".5s">
-                        <img src="img/news/logo3.png" alt="">
-                    </div>
-                    <div class="col-lg-2 col-sm-4 col-6 fadeInLeftBig wow" data-wow-delay=".6s" data-wow-duration=".5s">
-                        <img src="img/news/logo4.png" alt="">
-                    </div>
-                    <div class="col-lg-2 col-sm-4 col-6 fadeInLeftBig wow" data-wow-delay=".4s" data-wow-duration=".5s">
-                        <img src="img/news/logo5.png" alt="">
-                    </div>
-                    <div class="col-lg-2 col-sm-4 col-6 fadeInLeftBig wow" data-wow-delay=".2s" data-wow-duration=".5s">
-                        <img src="img/news/logo6.png" alt="">
-                    </div>
+                    @foreach ($brands as $key => $brand)
+                        <div class="col-lg-2 col-sm-4 col-6 fadeInRightBig wow" data-wow-delay=".{{ $key + 1 }}s" data-wow-duration=".5s">
+                            <img src="{{ $brand->img }}" alt="{{ $brand->name }}" class="img-fluid">
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>
