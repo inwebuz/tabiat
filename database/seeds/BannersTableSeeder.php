@@ -34,6 +34,18 @@ class BannersTableSeeder extends Seeder
         //     'status' => '1',
         // ]);
 
+        // sidebar
+        Banner::create([
+            'name' => '01',
+            'description_top' => '',
+            'description' => '01',
+            'button_text' => '',
+            'type' => 'sidebar_1',
+            'image' => 'banners/sidebar-01.jpg',
+            'url' => '#',
+            'status' => '1',
+        ]);
+
 
         // home
         // Banner::create([

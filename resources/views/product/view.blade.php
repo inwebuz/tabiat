@@ -3,6 +3,7 @@
 @section('seo_title', $product->seo_title ? $product->seo_title : $product->name)
 @section('meta_description', $product->meta_description)
 @section('meta_keywords', $product->meta_keywords)
+@section('body_class', 'product-page')
 
 @section('content')
 
@@ -14,163 +15,68 @@
         </div>
     @endcan
 
-    <section class="content-block mt-0">
+    @include('partials.page_top', ['bg' => '', 'title' => $category->name]);
+
+    <div class="container">
+        @include('partials.breadcrumbs')
+    </div>
+
+    <section class="section-block pt-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mb-4 mb-md-0">
+                <div class="col-lg-9 order-lg-2 main-block">
+
                     <div class="product-page-image mb-3">
                         <a href="{{ $product->img }}" data-fancybox="gallery">
                             <img src="{{ $product->large_img }}" class="img-fluid" alt="{{ $product->name }}">
                         </a>
                     </div>
-                    <div class="product-image-slider-container position-relative">
-                        <div class="product-image-slider">
-                            @foreach($product->small_imgs as $smallImgKey => $smallImg)
-                                <div class="product-image-slide">
-                                    <a href="{{ $product->imgs[$smallImgKey] }}" class="d-block mx-2" data-fancybox="gallery">
-                                        <img src="{{ $smallImg }}" class="img-fluid" alt="{{ $product->name }} {{ $smallImgKey }}">
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
-                        <span class="arrow-next"><i class="fa fa-angle-right"></i></span>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="product-page-breadcrumbs">
-                        @include('partials.breadcrumbs')
-                    </div>
-                    <h1 class="product-header">{{ $product->name }}</h1>
-                    @if ($brand)
-                        <div>
-                            <strong>{{ __('main.brand') }}: <a href="{{ $brand->url }}">{{ $brand->name }}</a></strong>
-                        </div>
-                    @endif
-                    <div class="product-page-price">
-                        <span class="product_page_current_price current-price @if($product->getModel()->isDiscounted()) special-price @endif">
-                            {{ Helper::formatPrice($product->current_price) }}
-                        </span>
-                        @if($product->getModel()->isDiscounted())
-                            <span class="product_page_old_price old-price ml-1">
-                                {{ Helper::formatPrice($product->price) }}
-                            </span>
-                        @endif
-                    </div>
 
-                    <div class="product-page-stock-box mt-4">
-                        <span class="product-page-stock-text @if(!$productVariants->isEmpty()) d-none @endif">
-                            <span class="product_page_in_stock_text bg-success text-light py-1 px-2 mr-2 @if ($productVariants->isEmpty() && $product->getModel()->isAvailable()) d-inline-block @else d-none @endif">
-                                {{ __('main.in_stock') }}
-                            </span>
-                            <span class="product_page_not_in_stock_text bg-light text-dark py-1 px-2 mr-2 @if($productVariants->isEmpty() && !$product->getModel()->isAvailable()) d-inline-block @else d-none @endif">
-                                {{ __('main.not_in_stock') }}
-                            </span>
-                        </span>
-                        <span class="product-page-stock @if(!$productVariants->isEmpty()) d-none @endif">
-                            {!! __('main.products_left2', ['quantity' => '<span class="product_page_in_stock">' . $product->in_stock . '</span>']) !!}
-                        </span>
-                    </div>
-
-
-
-                    @if(!$productVariants->isEmpty())
-                        @include('partials.product_variants_rows')
-                    @endif
-
-                    <div class="product-page-box">
-                        <div class="row">
-                            <div class="col-lg-6 col-xl-5 mb-4 mb-lg-0">
-                                <!-- cart -->
-                                <button type="button"
-                                    class="btn btn-secondary btn-lg text-nowrap add-to-cart-btn @if(!$productVariants->isEmpty() ) disabled has-product-variants @elseif(!$product->getModel()->isAvailable()) disabled @endif" data-id="{{ $product->id }}"
-                                    data-variant-id=""
-                                    data-name="{{ $product->name }}"
-                                    data-price="{{ $product->current_price }}"
-                                >
-                                    {{ __('main.add_to_cart') }}
-                                </button>
-                                <!-- end cart -->
-                            </div>
-                            <div class="col-lg-6 col-xl-7 d-flex align-items-center">
-                                <!-- wishlist -->
-                                <button data-add-url="{{ route('wishlist.add') }}" data-remove-url="{{ route('wishlist.delete', $product->id) }}"
-                                    class="@if(!app('wishlist')->get($product->id))add-to-wishlist-btn @else remove-from-wishlist-btn @endif wishlist-control-btn btn btn-link gray-link px-0" data-id="{{ $product->id }}"
-                                    data-name="{{ $product->name }}"
-                                    data-price="{{ $product->current_price }}"
-                                    data-add-text="{!! __('main.icon_not_in_wishlist') !!} {{ __('main.add_to_wishlist') }}"
-                                    data-delete-text="{!! __('main.icon_in_wishlist') !!} {{ __('main.delete_from_wishlist') }}">
-                                    @if(!app('wishlist')->get($product->id))
-                                        {!! __('main.icon_not_in_wishlist') !!} {{ __('main.add_to_wishlist') }}
-                                    @else
-                                        {!! __('main.icon_in_wishlist') !!} {{ __('main.delete_from_wishlist') }}
-                                    @endif
-
-                                </button>
-                                <!-- end wishlist -->
-                            </div>
-                        </div>
-                    </div>
+                    <h2 class="product-header">{{ $product->name }}</h2>
 
                     @if ($product->description)
-                        <div class="box mt-5">
-                            <h5 class="small-header">{{ __('main.description') }}</h5>
-                            <div class="text-block">
+                        <div class="box mt-1">
+                            <div class="product-page-description">
                                 {{ $product->description }}
                             </div>
                         </div>
                     @endif
 
-                    @if ($brand || !$attributes->isEmpty())
-                        <div class="box mt-5">
-                            <h5 class="small-header">{{ __('main.specifications') }}</h5>
-                            <div class="table-responsive">
-                                <table class="table table-borderless specifications-table">
-                                    @if ($brand)
-                                        <tr>
-                                            <td>
-                                                <span>{{ __('main.brand') }}</span>
-                                            </td>
-                                            <td>{{ $brand->name }}</td>
-                                        </tr>
-                                    @endif
-                                    @if(!$attributes->isEmpty())
-                                        @foreach($attributes as $attribute)
-                                            <tr>
-                                                <td>
-                                                    <span>{{ $attribute->name }}</span>
-                                                </td>
-                                                <td>
-                                                    @foreach($attribute->attributeValues as $attributeValue)
-                                                        {{ $attributeValue->name }}@if(!$loop->last){{ ',' }}@endif
-                                                    @endforeach
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @endif
+                    <div class="box mt-4">
+                        <button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#contact-modal">
+                            {{ __('main.to_order') }}
+                        </button>
+                    </div>
 
-                                </table>
+                    @if ($product->body)
+                        <div class="box mt-4">
+                            <div class="text-block">
+                                {!! $product->body !!}
                             </div>
                         </div>
                     @endif
 
-
+                </div>
+                <div class="col-lg-3 order-lg-1 side-block mt-5 mt-lg-0 text-center text-lg-left">
+                    @include('partials.subcategories_side_box')
+                    @if ($banner)
+                        <div class="side-box sticky-top-100">
+                            @if ($banner->url)
+                                <a href="{{ $banner->url }}">
+                                    <img src="{{ $banner->img }}" alt="{{ $banner->description }}" class="img-fluid">
+                                </a>
+                            @else
+                                <img src="{{ $banner->img }}" alt="{{ $banner->description }}" class="img-fluid">
+                            @endif
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
     </section>
 
-    @if ($product->body)
-        <section class="content-block">
-            <div class="container">
-                <div class="text-block">
-                    {!! $product->body !!}
-                </div>
-            </div>
-        </section>
-    @endif
-
     @if(!$similar_products->isEmpty())
-        <section class="content-block">
+        <section class="section-block bg-light-green section-pattern-top section-pattern-bottom">
             <div class="container">
                 <h2 class="main-header text-center text-md-left">{{ __('main.similar_products') }}</h2>
 
@@ -186,8 +92,6 @@
             </div>
         </section>
     @endif
-
-    @include('partials.contact_form')
 
 
 @endsection

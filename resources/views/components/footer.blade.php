@@ -1,20 +1,23 @@
-<footer class="footer">
+@php
+    $phone = setting('contact.phone');
+    $phone2 = setting('contact.phone2');
+    $phone3 = setting('contact.phone3');
+    $email = setting('contact.email');
+    $telegram = setting('contact.telegram');
+    $facebook = setting('contact.facebook');
+    $instagram = setting('contact.instagram');
+@endphp
+<footer class="footer section-pattern-top">
     <div class="footer-top">
         <div class="container">
             <div class="row footer-top__wrap">
                 <div class="col-lg-4 col-sm-6 footer-contacts">
-                    <ul>
+                    <ul class="list-unstyled">
                         <li>
                             <svg width="40" height="40">
                                 <use xlink:href="#phone"></use>
                             </svg>
                             <div>
-                                @php
-                                    $phone = setting('contact.phone');
-                                    $phone2 = setting('contact.phone2');
-                                    $phone3 = setting('contact.phone3');
-                                    $email = setting('contact.email');
-                                @endphp
                                 @if ($phone)
                                     <a href="tel:{{ Helper::phone($phone) }}" class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">{{ $phone }}</a>
                                 @endif
@@ -41,7 +44,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-3 col-sm-6 footer-navbar">
-                    <ul>
+                    <ul class="list-unstyled">
                         @php
                             $i = 0;
                         @endphp
@@ -66,27 +69,30 @@
                     </ul>
                 </div>
                 <div class="col-lg-5 col-sm-12 footer-feedback">
-                    <form class="form-feedback">
-                        <h5 class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">Форма обратной связи</h5>
-                        <div class="form-content">
-                            <div class="form-group fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
-                                <label for="c_name">
-                                    <input type="text" id="c_name" name="c_name" placeholder="Ваше имя">
+                    <form class="form-feedback contact-form" method="post" action="{{ route('contacts.send') }}">
+                        @csrf
+                        <h5 class="fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">{{ __('main.feedback_form') }}</h5>
+                        <div class="form-hide">
+                            <div class="form-content">
+                                <div class="form-group fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                                    <label for="c_name">
+                                        <input type="text" id="c_name" name="name" placeholder="{{ __('main.form.your_name') }}">
+                                    </label>
+                                </div>
+                                <div class="form-group fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
+                                    <label for="c_phone">
+                                        <input type="text" id="c_phone" name="phone" placeholder="{{ __('main.phone_number') }}">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">
+                                <label for="c_maesage">
+                                    <textarea name="message" id="c_maesage" cols="5" placeholder="{{ __('main.message') }}"></textarea>
                                 </label>
                             </div>
-                            <div class="form-group fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">
-                                <label for="c_phone">
-                                    <input type="text" id="c_phone" name="c_phone" placeholder="Ваш номер">
-                                </label>
-                            </div>
+                            <button type="submit" class="btn btn-primary bounceIn wow" data-wow-delay=".8s">{{ __('main.to_send') }}</button>
                         </div>
-                        <div class="form-group fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">
-                            <label for="c_maesage">
-                                <textarea name="c_maesage" id="c_maesage" cols="5"
-                                        placeholder="Сообщение"></textarea>
-                            </label>
-                        </div>
-                        <button type="submit" class="btn bounceIn wow" data-wow-delay=".8s">Отправить</button>
+                        <div class="form-result"></div>
                     </form>
                 </div>
             </div>
@@ -95,39 +101,45 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row footer-bottom__wrap">
-                <div class="col-lg-4 copyright-block d-flex align-items-center">
-                    <p class="fadeInRightBig wow" data-wow-delay=".2s" data-wow-duration=".5s">2021 © Все права защищены. OOO «GO’ZAL TABIAT»</p>
+                <div class="col-lg-4 copyright-block d-flex align-items-center justify-content-center justify-content-lg-start">
+                    <p class="fadeInLeft wow" data-wow-delay=".2s" data-wow-duration=".5s">{{ date('Y') }} &copy; {{ __('main.all_rights_reserved') }}. {{ setting('site.title') }}</p>
                 </div>
                 <div class="col-lg-4 footer-social__list">
-                    <ul>
-                        <li class="fadeInLeft wow" data-wow-delay=".8s" data-wow-duration=".5s">
-                            <a href="#">
-                                <svg width="20" height="20">
-                                    <use xlink:href="#telegram"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="fadeInLeft wow" data-wow-delay=".9s" data-wow-duration=".5s">
-                            <a href="#">
-                                <svg width="20" height="20">
-                                    <use xlink:href="#facebook"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="fadeInLeft wow" data-wow-delay="1s" data-wow-duration=".5s">
-                            <a href="#">
-                                <svg width="20" height="20">
-                                    <use xlink:href="#instagram"></use>
-                                </svg>
-                            </a>
-                        </li>
+                    <ul class="list-unstyled">
+                        @if ($telegram)
+                            <li class="fadeInLeft wow" data-wow-delay=".8s" data-wow-duration=".5s">
+                                <a href="{{ $telegram }}">
+                                    <svg width="20" height="20">
+                                        <use xlink:href="#telegram"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        @endif
+                        @if ($facebook)
+                            <li class="fadeInLeft wow" data-wow-delay=".9s" data-wow-duration=".5s">
+                                <a href="{{ $facebook }}">
+                                    <svg width="20" height="20">
+                                        <use xlink:href="#facebook"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        @endif
+                        @if ($instagram)
+                            <li class="fadeInLeft wow" data-wow-delay="1s" data-wow-duration=".5s">
+                                <a href="{{ $instagram }}">
+                                    <svg width="20" height="20">
+                                        <use xlink:href="#instagram"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
                 <div class="col-lg-4 footer-logo">
-                    <div class="footer-logo fadeInLeftBig wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                    <div class="footer-logo fadeInLeft wow" data-wow-delay=".2s" data-wow-duration=".5s">
                         <a href="https://inweb.uz" target="_blank" class="d-inline-block">
-                            Разработка —
-                            <img src="img/icons/footer-logo.png" alt="">
+                            {{ __('main.developer') }} —
+                            <img src="/img/icons/footer-logo.png" alt="">
                         </a>
                     </div>
                 </div>
@@ -237,6 +249,29 @@
     </div>
 </footer>
 
+
+
+<!-- Cart Modal -->
+<div class="modal fade" id="cart-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="cart-message mb-3 mt-2 text-center h4">
+                    {{ __('main.product_added_to_cart') }}
+                </h4>
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary mb-2" data-dismiss="modal">
+                        {{ __('main.continue_shopping') }}
+                    </button>
+                    <a href="{{ route('cart.index') }}" class="btn btn-primary mb-2">
+                        {{ __('main.go_to_cart') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
 <!-- Contact Modal -->
 <div class="modal fade" id="contact-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -245,9 +280,9 @@
                 @csrf
                 <input type="hidden" name="product_id" value="">
 
-                <input type="hidden" name="category_id" value="">
+                {{-- <input type="hidden" name="category_id" value="">
                 <input type="hidden" name="crop_category_id" value="">
-                <input type="hidden" name="crop_id" value="">
+                <input type="hidden" name="crop_id" value=""> --}}
 
                 <div class="modal-body">
                     <h5 class="modal-title" id="contact-modal-label">
@@ -277,24 +312,3 @@
         </div>
     </div>
 </div>
-
-<!-- Cart Modal -->
-<div class="modal fade" id="cart-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="cart-message mb-3 mt-2 text-center h4">
-                    {{ __('main.product_added_to_cart') }}
-                </h4>
-                <div class="text-center">
-                    <button type="button" class="btn btn-secondary mb-2" data-dismiss="modal">
-                        {{ __('main.continue_shopping') }}
-                    </button>
-                    <a href="{{ route('cart.index') }}" class="btn btn-primary mb-2">
-                        {{ __('main.go_to_cart') }}
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}

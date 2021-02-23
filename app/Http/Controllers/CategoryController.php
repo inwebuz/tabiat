@@ -15,7 +15,7 @@ class CategoryController extends Controller
     /**
      * show products per page values
      */
-    public $quantityPerPage = [12, 60, 120];
+    public $quantityPerPage = [24, 60, 120];
     public $sorts = ['created_at-desc', 'price-asc', 'price-desc'];
 
     /**
@@ -36,6 +36,7 @@ class CategoryController extends Controller
 
     public function view(Request $request, Category $category)
     {
+        $locale = app()->getLocale();
         $breadcrumbs = new Breadcrumbs();
 
         // $page = Helper::translation(Page::findOrFail(5));
@@ -157,7 +158,9 @@ class CategoryController extends Controller
         // categories
         // $categories = Category::active()->parents()->with('children.children.children')->get();
         // $siblingCategories = Category::active()->where('parent_id', $category->parent_id)->get();
-        $subcategories = Category::active()->where('parent_id', $category->id)->with('translations')->get();
+        $subcategories = Category::active()->where('parent_id', $category->id)->withTranslation($locale)->with(['children' => function($query) use ($locale) {
+            $query->withTranslation($locale);
+        }])->get();
         if ($subcategories) {
             $subcategories = $subcategories->translate();
         }
@@ -169,9 +172,14 @@ class CategoryController extends Controller
 
         $new_products = Product::active()->latest()->take(4)->get();
 
+        $banner = Helper::banner('sidebar_1');
+        if ($banner) {
+            $banner = $banner->translate();
+        }
+
         $breadcrumbs->addItem(new LinkItem($category->name, $category->url, LinkItem::STATUS_INACTIVE));
 
-        return view('category', compact('breadcrumbs', 'products', 'productAllQuantity', 'category', 'new_products', 'activeCategoryIds', 'subcategories', 'links', 'brands', 'attributes', 'quantity', 'quantityPerPage', 'sorts', 'sortCurrent', 'categoryBrands', 'categoryAttributes', 'categoryPrices', 'prices'));
+        return view('category', compact('breadcrumbs', 'banner', 'products', 'productAllQuantity', 'category', 'new_products', 'activeCategoryIds', 'subcategories', 'links', 'brands', 'attributes', 'quantity', 'quantityPerPage', 'sorts', 'sortCurrent', 'categoryBrands', 'categoryAttributes', 'categoryPrices', 'prices'));
     }
 
 }

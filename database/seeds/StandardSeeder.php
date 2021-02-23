@@ -152,7 +152,7 @@ class StandardSeeder extends Seeder
         ];
     }
 
-    protected function image($maxWidth = 1000, array $thumbs = [], int $quality = 70)
+    protected function image($maxWidth = 1000, array $thumbs = [], int $quality = 100)
     {
         $thumbnails = [];
         foreach ($thumbs as $thumb) {

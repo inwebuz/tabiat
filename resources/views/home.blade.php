@@ -8,22 +8,25 @@
 
     <main class="main">
 
-        <section class="hero">
+        <section class="hero section-block">
             <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
                 <source src="/media/video.mp4" type="video/mp4">
             </video>
+            <div class="dark-overlay"></div>
             <div class="container">
                 <div class="row hero-wrap">
                     <div class="col-lg-12">
-                        <h1 class="fadeInUp wow" data-wow-delay="1s" data-wow-duration=".3s">Семяна и удобрения</h1>
-                        <p class="hero-sub__title fadeInUp wow" data-wow-delay="1.2s" data-wow-duration=".3s">для сельского хозяйства</p>
-                        <a href="#" class="down-link fadeInUp wow" data-wow-delay="1.4s" data-wow-duration=".3s">Скачать каталог</a>
+                        <h1 class="slide-header fadeInUp wow" data-wow-delay="1s" data-wow-duration=".3s">{{ $slide->description_top }}</h1>
+                        <p class="hero-sub__title fadeInUp wow" data-wow-delay="1.2s" data-wow-duration=".3s">{{ $slide->description }}</p>
+                        @if ($slide->button_text && $slide->url)
+                            <a href="{{ $slide->url }}" class="down-link fadeInUp wow" data-wow-delay="1.4s" data-wow-duration=".3s">{{ $slide->button_text }}</a>
+                        @endif
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="about">
+        <section class="about section-block">
             <div class="container">
                 <div class="row about-wrap">
                     <div class="col-lg-6 about-left">
@@ -39,12 +42,12 @@
             </div>
         </section>
 
-        <section class="catalog bg-light">
+        <section class="catalog bg-light-green section-block section-pattern-top section-pattern-bottom">
             <div class="container">
                 <p class="sub-title text-center fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
                     <a href="{{ $pageCatalog->url }}">{{ $pageCatalog->name }}</a>
                 </p>
-                <h2 class="text-center fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">Наша продукция</h2>
+                <h2 class="text-center fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">{{ __('main.our_products') }}</h2>
                 <div class="row catalog-wrap">
                     <div class="col-lg-12">
                         <div class="catalog-swiper">
@@ -52,17 +55,7 @@
                                 <div class="swiper-wrapper">
                                     @foreach ($featuredProducts as $key => $product)
                                         <div class="swiper-slide fadeInRightBig wow" @if($key < 5) data-wow-delay=".{{ $key + 1 }}s" data-wow-duration=".5s" @endif>
-                                            <div class="catalog-item">
-                                                <div class="catalog-item__img">
-                                                    <a href="{{ $product->url }}">
-                                                        <img src="img/catalog/01.jpg" alt="" class="img-fluid">
-                                                    </a>
-                                                </div>
-                                                <div class="catalog-item__body">
-                                                    <h4><a href="#" class="black-link">МИРАБЕЛЛ F1</a></h4>
-                                                    <p>Рекомендуется для выращивания в стеклянных и пленочных теплицах</p>
-                                                </div>
-                                            </div>
+                                            @include('partials.product_one')
                                         </div>
                                     @endforeach
                                 </div>
@@ -83,7 +76,7 @@
             </div>
         </section>
 
-        <section class="news">
+        <section class="news section-block">
             <div class="container">
                 <p class="sub-title text-center fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
                     <a href="{{ route('news') }}">{{ __('main.all_news') }}</a>
@@ -92,13 +85,7 @@
                 <div class="row news-wrap">
                     @foreach ($news as $key => $publication)
                         <div class="col-lg-4 col-sm-6 fadeInRightBig wow" data-wow-delay=".{{ $key + 2 }}s" data-wow-duration=".5s">
-                            <div class="publication-one">
-                                <a href="{{ $publication->url }}" class="news-item" style="background-image: url('./img/news/01.jpg')">
-                                    <p class="date">{{ Helper::formatDate($publication->getModel()->created_at, true) }}</p>
-                                    <h5>{{ $publication->name }}</h5>
-                                    <span class="btn btn-out">{{ __('main.view_more') }}</span>
-                                </a>
-                            </div>
+                            @include('partials.news_one')
                         </div>
                     @endforeach
                 </div>

@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 $factory->define(Publication::class, function (Faker $faker) {
     $word = Str::title($faker->sentence);
     // $rubric = Rubric::inRandomOrder()->first();
+    $img = mt_rand(1, 3);
     $data = [
         'name' => $word,
         'slug' => Str::slug($word),
@@ -18,6 +19,7 @@ $factory->define(Publication::class, function (Faker $faker) {
         'status' => 1,
         'type' => 0, //mt_rand(0, 4),
         // 'rubric_id' => $rubric->id,
+        'image' => 'publications/0' . $img . '.jpg',
     ];
 
     return $data;

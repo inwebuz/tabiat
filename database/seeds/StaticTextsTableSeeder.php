@@ -38,7 +38,7 @@ class StaticTextsTableSeeder extends Seeder
         factory(StaticText::class)->create([
             'name' => 'Адрес',
             'key' => 'contact_address',
-            'description' => 'ТРЦ Riviera, 2 этаж',
+            'description' => 'Республика Узбекистан, г. Ташкент, ул. Сайрам 174, 100170',
         ]);
 
         /*// footer text

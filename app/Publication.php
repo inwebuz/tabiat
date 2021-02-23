@@ -49,10 +49,10 @@ class Publication extends Model
     public static $statuses = [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_PENDING];
 
     public static $imgSizes = [
-        'micro' => [120, 76],
-        'small' => [160, 102],
+        //'micro' => [120, 76],
+        //'small' => [160, 102],
         'medium' => [328, 230],
-        'large' => [685, 480],
+        //'large' => [685, 480],
     ];
 
     protected $translatable = ['name', 'short_name', 'description', 'body', 'additional_info', 'seo_title', 'meta_description', 'meta_keywords'];

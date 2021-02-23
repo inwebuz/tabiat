@@ -1,6 +1,6 @@
 <nav class="burger-menu">
     <div class="burger-menu__wrap">
-        <ul class="burger-menu__list">
+        <ul class="burger-menu__list list-unstyled">
             @foreach($headerMenuItems as $key => $item)
                 <li>
                     <a href="{{ $item->url }}">{{ $item->name }}</a>
@@ -34,10 +34,10 @@
 <header class="header">
     <div class="container">
         <div class="header-wrap">
-            <div class="logo"><a href="{{ route('home') }}"><img src="img/logo.png" alt=""></a></div>
+            <div class="logo"><a href="{{ route('home') }}"><img src="{{ $logo }}" alt=""></a></div>
             <nav class="navbar">
                 <div class="navbar-content">
-                    <ul class="nav-list">
+                    <ul class="nav-list list-unstyled">
                         @foreach($headerMenuItems as $key => $item)
                             <li class="nav-item">
                                 <a href="{{ $item->url }}" class="nav-link hover-line">{{ $item->name }}</a>
@@ -73,21 +73,25 @@
                             <use xlink:href="#search"></use>
                         </svg>
                     </a>
-                    <div class="search-field-block">
-                        <div class="input-field">
-                            <label for="a_search" class="input-field-search-block">
-                                <svg width="15" height="15">
-                                    <use xlink:href="#search"></use>
-                                </svg>
-                                <input type="text" id="a_search" name="a_search">
-                            </label>
-                            <div class="close-btn">
-                                <svg width="12" height="12">
-                                    <use xlink:href="#close"></use>
-                                </svg>
-                            </div>
+                    <form class="search-field-block" id="header-search-form" action="{{ route('search') }}">
+                        <div class="input-group">
+                            <span class="input-group-prepend">
+                                <button class="btn btn-link" type="submit">
+                                    <svg width="15" height="15">
+                                        <use xlink:href="#search"></use>
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="a_search" class="form-control px-0" minlength="3" required name="q">
+                            <span class="input-group-append">
+                                <span class="btn btn-link close-btn">
+                                    <svg width="12" height="12">
+                                        <use xlink:href="#close"></use>
+                                    </svg>
+                                </span>
+                            </span>
                         </div>
-                    </div>
+                    </form>
 
                     <div id="language-block" class="dropdown mr-4">
                         <a href="{{ $switcher->getActive()->url }}" class="text-uppercase dropdown-toggle white-link" data-toggle="dropdown">

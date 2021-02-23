@@ -32,6 +32,9 @@ class Banner extends Model
     const TYPE_MIDDLE_1 = 'middle_1';
     const TYPE_MIDDLE_2 = 'middle_2';
     const TYPE_MIDDLE_3 = 'middle_3';
+    const TYPE_SIDEBAR_1 = 'sidebar_1';
+    const TYPE_SIDEBAR_2 = 'sidebar_2';
+    const TYPE_SIDEBAR_3 = 'sidebar_3';
     const TYPE_MOBILE_MENU = 'mobile_menu';
 
 
@@ -112,10 +115,13 @@ class Banner extends Model
             // self::TYPE_HOME_1 => 'Главная 1',
             // self::TYPE_HOME_2 => 'Главная 2',
             // self::TYPE_HOME_3 => 'Главная 3',
-            self::TYPE_MIDDLE_1 => 'Середина 1',
-            self::TYPE_MIDDLE_2 => 'Середина 2',
+            // self::TYPE_MIDDLE_1 => 'Середина 1',
+            // self::TYPE_MIDDLE_2 => 'Середина 2',
             // self::TYPE_MIDDLE_3 => 'Середина 3',
             // self::TYPE_MOBILE_MENU => 'Мобильное меню',
+            self::TYPE_SIDEBAR_1 => 'Боковая панель 1',
+            // self::TYPE_SIDEBAR_2 => 'Боковая панель 2',
+            // self::TYPE_SIDEBAR_3 => 'Боковая панель 3',
         ];
     }
 }

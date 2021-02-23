@@ -41,12 +41,12 @@ class ProductController extends Controller
 
     public function view(Product $product)
     {
+        $locale = app()->getLocale();
+
         Helper::checkModelActive($product);
         // $page = Page::findOrFail(4);
         $breadcrumbs = new Breadcrumbs();
         //$breadcrumbs->addItem(new LinkItem($page->name, $page->url));
-
-        $locale = app()->getLocale();
 
         $brand = $product->brand;
         if (!empty($brand)) {
@@ -57,11 +57,14 @@ class ProductController extends Controller
         //     $shop = $shop->translate();
         // }
         $similar_products = collect();
+
+        $subcategoriesParentCategoryID = null;
         $category = $product->categories->first();
         if (!empty($category)) {
-
+            $subcategoriesParentCategoryID = $category->id;
             if (!empty($category->parent)) {
                 $parent = Helper::translation($category->parent);
+                $subcategoriesParentCategoryID = $parent->id;
                 $breadcrumbs->addItem(new LinkItem($parent->name, $parent->url));
             }
             $similar_products = $category->products()->active()->where('products.id', '!=', $product->id)->latest()->take(4)->get();
@@ -69,6 +72,16 @@ class ProductController extends Controller
 
             $category = Helper::translation($category);
             $breadcrumbs->addItem(new LinkItem($category->name, $category->url));
+        }
+
+        $subcategories = collect();
+        if ($category) {
+            $subcategories = Category::active()->where('parent_id', $subcategoriesParentCategoryID)->withTranslation($locale)->with(['children' => function($query) use ($locale) {
+                $query->withTranslation($locale);
+            }])->get();
+            if ($subcategories) {
+                $subcategories = $subcategories->translate();
+            }
         }
 
         $reviews = $product->reviews()->active()->latest()->take(20)->get();
@@ -118,7 +131,12 @@ class ProductController extends Controller
         $microdata->aggregateRating($aggregateRating);
         $microdata = $microdata->toScript();
 
-        return view('product.view', compact('breadcrumbs', 'product', 'productVariants', 'productVariantsAttributes', 'brand', 'category', 'attributes', 'reviews', 'similar_products', 'microdata'));
+        $banner = Helper::banner('sidebar_1');
+        if ($banner) {
+            $banner = $banner->translate();
+        }
+
+        return view('product.view', compact('breadcrumbs', 'banner', 'subcategories', 'product', 'productVariants', 'productVariantsAttributes', 'brand', 'category', 'attributes', 'reviews', 'similar_products', 'microdata'));
     }
 
     /* resources */
@@ -463,5 +481,31 @@ class ProductController extends Controller
         $products = $products->translate();
 
         return view('sale', compact('page', 'breadcrumbs', 'products', 'productAllQuantity', 'links', 'quantity', 'quantityPerPage', 'sorts', 'sortCurrent'));
+    }
+
+    public function catalog(Request $request)
+    {
+        $breadcrumbs = new Breadcrumbs();
+
+        $page = Helper::translation(Page::findOrFail(4));
+        $breadcrumbs->addItem(new LinkItem($page->name, $page->url, LinkItem::STATUS_INACTIVE));
+
+        // quantity per page
+        $quantityPerPage = $this->quantityPerPage;
+        $quantity = $request->input('quantity', $this->quantityPerPage[0]);
+        if (!in_array($quantity, $this->quantityPerPage)) {
+            $quantity = $this->quantityPerPage[0];
+        }
+
+        $products = Product::active()->latest()->withTranslation(app()->getLocale())->paginate($quantity);
+
+        // get query products paginate
+        $links = $products->links();
+
+        if (!$products->isEmpty()) {
+            $products = $products->translate();
+        }
+
+        return view('catalog', compact('page', 'breadcrumbs', 'products', 'links', 'quantity'));
     }
 }

@@ -105,6 +105,7 @@ Route::group(
     Route::get('featured', "ProductController@featured")->name('featured');
 
     // products routes
+    Route::get('catalog', "ProductController@catalog")->name('catalog');
     Route::get('products/create', "ProductController@create")->name('products.create');
     Route::post('products', "ProductController@store")->name('products.store');
     Route::get('products/{product}/edit', "ProductController@edit")->name('products.edit');

@@ -44,31 +44,14 @@ class PublicationController extends Controller
 
         $query = Publication::active()->news()->latest()->withTranslation(app()->getLocale());
 
-        $today = Carbon::now();
-        $end = request('end', $today->format('d.m.Y'));
-        $start = request('start', $today->subMonths(3)->format('d.m.Y'));
-        try {
-            $periodStart = Carbon::createFromFormat('d.m.Y', $start);
-            $periodEnd = Carbon::createFromFormat('d.m.Y', $end);
-            if($periodStart > $periodEnd) {
-                $tempPeriod = $periodStart;
-                $periodStart = $periodEnd;
-                $periodEnd = $tempPeriod;
-            }
-            $query->where('created_at', '>=', $periodStart->startOfDay()->format('Y-m-d H:i:s'));
-            $query->where('created_at', '<=', $periodEnd->endOfDay()->format('Y-m-d H:i:s'));
-        } catch (Exception $e) {
-            abort(404);
-        }
-
         $publications = $query->paginate(12);
 
-        $links = $publications->appends(['start' => Helper::formatDate($periodStart), 'end' => Helper::formatDate($periodEnd)])->links();
+        $links = $publications->links();
         if ($publications) {
             $publications = $publications->translate();
         }
 
-        return view('publications.news', compact('breadcrumbs', 'page', 'paginationPage', 'publications', 'links', 'siblingPages', 'periodEnd', 'periodStart'));
+        return view('publications.news', compact('breadcrumbs', 'page', 'paginationPage', 'publications', 'links', 'siblingPages'));
     }
 
     public function events()
@@ -302,7 +285,10 @@ class PublicationController extends Controller
         $microdata = $microdata->toScript(); */
 
         $publication = Helper::translation($publication);
-        $breadcrumbs->addItem(new LinkItem($publication->name, $publication->url, LinkItem::STATUS_INACTIVE));
+        if ($publication->type == Publication::TYPE_NEWS) {
+            $breadcrumbs->addItem(new LinkItem(__('main.news'), route('news')));
+        }
+        // $breadcrumbs->addItem(new LinkItem($publication->name, $publication->url, LinkItem::STATUS_INACTIVE));
 
         // return view('publications.show', compact('breadcrumbs', 'publication', 'page', 'reviews', 'microdata'));
         return view('publications.show', compact('breadcrumbs', 'publication', 'page'));

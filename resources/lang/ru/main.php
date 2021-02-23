@@ -181,6 +181,7 @@ return [
     'orders' => 'Заказы',
     'our_contacts' => 'Наши контакты',
     'our_mail' => 'Наша почта',
+    'our_products' => 'Наша продукция',
     'password' => 'Пароль',
     'password_confirmation' => 'Подтвердите пароль',
     'password_saved' => 'Пароль сохранен',

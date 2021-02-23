@@ -181,6 +181,7 @@ return [
     'orders' => 'Buyurtmalar',
     'our_contacts' => 'Bizning aloqa ma\'lumotlarimiz',
     'our_mail' => 'Bizning E-mail',
+    'our_products' => 'Наша продукция',
     'password' => 'Parol',
     'password_confirmation' => 'Parolni tasdiqlang',
     'password_saved' => 'Parol saqlandi',

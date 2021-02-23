@@ -8,7 +8,7 @@ return [
     'supportedLocales' => [
 
         'ru'            => ['name' => 'Russian',                'script' => 'Cyrl', 'native' => 'Русский', 'regional' => 'ru_RU'],
-        // 'en'            => ['name' => 'English',                'script' => 'Latn', 'native' => 'English', 'regional' => 'en_US'],
+        'en'            => ['name' => 'English',                'script' => 'Latn', 'native' => 'English', 'regional' => 'en_US'],
 
         //'uz'          => ['name' => 'Uzbek (Cyrillic)',       'script' => 'Cyrl', 'native' => 'Ўзбек', 'regional' => 'uz_UZ'],
         'uz'          => ['name' => 'Uzbek (Latin)',          'script' => 'Latn', 'native' => 'Oʻzbekcha', 'regional' => 'uz_UZ'],

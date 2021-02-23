@@ -8,34 +8,46 @@
 
     @include('partials.page_top', ['title' => $page->name, 'bg' => $page->bg])
 
-    <section class="content-block">
+    <section class="section-block pt-4">
 
         <div class="container">
 
+            @include('partials.breadcrumbs')
 
             <div class="row mb-5">
                 <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
 
                     <h3 class="contact-title mb-4">{{ __('main.our_contacts') }}</h3>
 
-                    <div class="media contact-info">
-                        <i class="fa fa-map-marker mr-3"></i>
+                    <div class="media contact-info mb-3">
                         <div class="media-body">
+                            <svg width="20" height="20">
+                                <use xlink:href="#marker"></use>
+                            </svg>
                             <span>{{ setting('contact.address') }}</span>
                         </div>
                     </div>
-                    <div class="media contact-info">
-                        <i class="fa fa-phone mr-3"></i>
+                    <div class="media contact-info mb-3">
                         <div class="media-body">
+                            <svg width="20" height="20">
+                                <use xlink:href="#phone"></use>
+                            </svg>
                             <span><a href="tel:{{ Helper::phone(setting('contact.phone')) }}" class="black-link">{{ setting('contact.phone') }}</a></span>
                         </div>
                     </div>
-                    <div class="media contact-info">
-                        <i class="fa fa-envelope mr-3"></i>
+                    <div class="media contact-info mb-3">
                         <div class="media-body">
+                            <svg width="20" height="20">
+                                <use xlink:href="#mail"></use>
+                            </svg>
                             <span><a href="mailto:{{ setting('contact.email') }}" class="black-link">{{ setting('contact.email') }}</a></span>
                         </div>
                     </div>
+
+                    <div class="contact-map mt-4">
+                        {!! setting('contact.map') !!}
+                    </div>
+
 
                 </div>
                 <div class="col-lg-6 order-lg-1">
@@ -74,10 +86,5 @@
         </div>
 
     </section>
-
-    <div class="contact-map">
-        {!! setting('contact.map') !!}
-    </div>
-
 
 @endsection

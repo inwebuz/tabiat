@@ -18,10 +18,10 @@ class PublicationsTableSeeder extends Seeder
         DB::table('publications')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        factory(Publication::class, 10)->create([
+        factory(Publication::class, 15)->create([
             'user_id' => 3,
             'type' => Publication::TYPE_NEWS,
         ]);
-        factory(Publication::class, 50)->create();
+        // factory(Publication::class, 50)->create();
     }
 }

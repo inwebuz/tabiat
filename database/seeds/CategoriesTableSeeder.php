@@ -31,6 +31,80 @@ class CategoriesTableSeeder extends Seeder
         $category->name = 'Удобрения';
         $category->save();
 
+            $category1 = factory(Category::class)->create([
+                'parent_id' => $category->id,
+                'name' => 'Минеральные удобрения',
+                'slug' => Str::slug('Минеральные удобрения'),
+                'show_in' => 2,
+            ]);
+                factory(Category::class)->create([
+                    'parent_id' => $category1->id,
+                    'name' => 'Новалон',
+                    'slug' => Str::slug('Новалон'),
+                    'show_in' => 2,
+                ]);
+                factory(Category::class)->create([
+                    'parent_id' => $category1->id,
+                    'name' => 'Hydroponica',
+                    'slug' => Str::slug('Hydroponica'),
+                    'show_in' => 2,
+                ]);
+                factory(Category::class)->create([
+                    'parent_id' => $category1->id,
+                    'name' => 'Calmag',
+                    'slug' => Str::slug('Calmag'),
+                    'show_in' => 2,
+                ]);
+
+            $category1 = factory(Category::class)->create([
+                'parent_id' => $category->id,
+                'name' => 'Фосфорные удобрения',
+                'slug' => Str::slug('Фосфорные удобрения'),
+                'show_in' => 2,
+            ]);
+                factory(Category::class)->create([
+                    'parent_id' => $category1->id,
+                    'name' => 'Новалон',
+                    'slug' => Str::slug('Новалон'),
+                    'show_in' => 2,
+                ]);
+                factory(Category::class)->create([
+                    'parent_id' => $category1->id,
+                    'name' => 'Hydroponica',
+                    'slug' => Str::slug('Hydroponica'),
+                    'show_in' => 2,
+                ]);
+                factory(Category::class)->create([
+                    'parent_id' => $category1->id,
+                    'name' => 'Calmag',
+                    'slug' => Str::slug('Calmag'),
+                    'show_in' => 2,
+                ]);
+                $category1 = factory(Category::class)->create([
+                'parent_id' => $category->id,
+                'name' => 'Калийные удобрения',
+                'slug' => Str::slug('Калийные удобрения'),
+                'show_in' => 2,
+            ]);
+                factory(Category::class)->create([
+                    'parent_id' => $category1->id,
+                    'name' => 'Новалон',
+                    'slug' => Str::slug('Новалон'),
+                    'show_in' => 2,
+                ]);
+                factory(Category::class)->create([
+                    'parent_id' => $category1->id,
+                    'name' => 'Hydroponica',
+                    'slug' => Str::slug('Hydroponica'),
+                    'show_in' => 2,
+                ]);
+                factory(Category::class)->create([
+                    'parent_id' => $category1->id,
+                    'name' => 'Calmag',
+                    'slug' => Str::slug('Calmag'),
+                    'show_in' => 2,
+                ]);
+
         // id = 2
         $category = factory(Category::class)->create([
             'name' => 'Семяна',
