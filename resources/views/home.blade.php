@@ -73,6 +73,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="my-4 text-center">
+                    <a href="{{ route('catalog') }}" class="btn btn-primary">{{ __('main.all_products') }}</a>
+                </div>
             </div>
         </section>
 

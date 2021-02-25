@@ -13,7 +13,7 @@ class Banner extends Model
     use Resizable;
     use Translatable;
 
-    protected $translatable = ['name', 'description', 'button_text', 'url'];
+    protected $translatable = ['name', 'description_top', 'description', 'button_text', 'url'];
 
     /**
      * Statuses.

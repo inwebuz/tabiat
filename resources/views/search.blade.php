@@ -8,15 +8,15 @@
 
     @include('partials.page_top', ['bg' => '', 'title' => __('main.search_results')]);
 
-    <section class="content-block mt-0">
+    <section class="section-block pt-4">
         <div class="container">
             <form action="{{ route('search') }}" class="search-form">
 
                 <div class="input-group input-group-lg mb-4">
                     <input type="text" name="q" class="form-control" placeholder="{{ __('main.search') }}" value="{{ $q }}">
                     <div class="input-group-append">
-                        <button class="btn btn-light" type="submit">
-                            <i class="fa fa-search"></i>
+                        <button class="btn btn-primary" type="submit">
+                            {{ __('main.search') }}
                         </button>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                     <div class="products-list">
                         <div class="row">
                             @foreach($searches as $search)
-                                <div class="col-xl-3 col-lg-3 col-md-6">
+                                <div class="col-xl-3 col-md-4 col-6">
                                     @include('partials.product_one', ['product' => $search->searchable])
                                 </div>
                             @endforeach
@@ -41,7 +41,5 @@
             </form>
         </div>
     </section>
-
-    @include('partials.contact_form')
 
 @endsection

@@ -148,23 +148,10 @@ input,
 }
 
 .btn {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
     font-size: 18px;
-    line-height: 18px;
-    border-radius: 23px;
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-    height: 44px;
-    padding: 13px 15px;
+    border-radius: 22px;
+    padding: 12px 15px;
+    line-height: 1;
 }
 .btn.btn-lg {
     font-size: 26px;
@@ -569,8 +556,8 @@ p strong {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.278);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: 6px;
 }
 @media all and (min-width: 576px) {
@@ -1850,7 +1837,26 @@ p strong {
     h2 {
         font-size: 24px;
     }
+    h3 {
+        font-size: 22px;
+    }
 
+    .catalog-swiper {
+        padding-bottom: 50px;
+        margin-bottom: 20px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        top: initial;
+        bottom: 20px;
+    }
+    .swiper-button-prev {
+        left: 38%;
+    }
+    .swiper-button-next {
+        right: 38%;
+    }
     .about .about-left img {
         max-width: 280px;
     }
@@ -1880,6 +1886,9 @@ p strong {
     h2 {
         font-size: 20px;
     }
+    h3 {
+        font-size: 19px;
+    }
     .burger-menu .burger-menu__list {
         margin-bottom: 20px;
     }
@@ -1891,32 +1900,6 @@ p strong {
     }
     .about .about-left img {
         max-width: 260px;
-    }
-    .catalog-swiper {
-        padding-bottom: 50px;
-        margin-bottom: 20px;
-    }
-    .catalog-swiper .catalog-item .catalog-item__img {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-    }
-    .swiper-button-prev,
-    .swiper-button-next {
-        top: initial;
-        bottom: 20px;
-    }
-    .swiper-button-prev {
-        left: 38%;
-    }
-    .swiper-button-next {
-        right: 38%;
     }
     .news-item {
         padding: 20px;

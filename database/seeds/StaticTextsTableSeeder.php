@@ -19,27 +19,30 @@ class StaticTextsTableSeeder extends Seeder
 //        }
 
         // principles
-        factory(StaticText::class)->create([
-            'name' => 'Бесплатная доставка',
-            'key' => 'principle_1',
-            'description' => 'По Ташкенту',
-        ]);
-        factory(StaticText::class)->create([
-            'name' => 'Гарантия',
-            'key' => 'principle_2',
-            'description' => 'Только качественные товары',
-        ]);
-        factory(StaticText::class)->create([
-            'name' => 'Онлайн оплата',
-            'key' => 'principle_3',
-            'description' => 'Принимаем Payme, Click',
-        ]);
+        // factory(StaticText::class)->create([
+        //     'name' => 'Бесплатная доставка',
+        //     'key' => 'principle_1',
+        //     'description' => 'По Ташкенту',
+        // ]);
+        // factory(StaticText::class)->create([
+        //     'name' => 'Гарантия',
+        //     'key' => 'principle_2',
+        //     'description' => 'Только качественные товары',
+        // ]);
+        // factory(StaticText::class)->create([
+        //     'name' => 'Онлайн оплата',
+        //     'key' => 'principle_3',
+        //     'description' => 'Принимаем Payme, Click',
+        // ]);
 
-        factory(StaticText::class)->create([
+        $staticText = factory(StaticText::class)->create([
             'name' => 'Адрес',
             'key' => 'contact_address',
             'description' => 'Республика Узбекистан, г. Ташкент, ул. Сайрам 174, 100170',
         ]);
+            $staticText = $staticText->translate('uz');
+            $staticText->description = '100170 Oʻzbekiston Respublikasi, Toshkent sh. Sayram k-si, 174';
+            $staticText->save();
 
         /*// footer text
         factory(StaticText::class)->create([

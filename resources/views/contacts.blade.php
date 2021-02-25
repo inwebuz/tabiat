@@ -75,7 +75,7 @@
                         </div>
 
                         <div class="form-group mt-3">
-                            <button type="submit" class="btn btn-outline-secondary">{{ __('main.form.send') }}</button>
+                            <button type="submit" class="btn btn-primary">{{ __('main.form.send') }}</button>
                         </div>
                     </form>
                 </div>

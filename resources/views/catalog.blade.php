@@ -16,7 +16,7 @@
 
             <div class="row">
                 @foreach ($products as $key => $product)
-                    <div class="col-xl-3 col-lg-4 col-6">
+                    <div class="col-xl-3 col-md-4 col-6">
                         @include('partials.product_one')
                     </div>
                 @endforeach

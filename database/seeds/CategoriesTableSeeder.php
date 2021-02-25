@@ -28,7 +28,7 @@ class CategoriesTableSeeder extends Seeder
             'show_in' => 2,
         ]);
         $category = $category->translate('uz');
-        $category->name = 'Удобрения';
+        $category->name = 'Oʻgʻitlar';
         $category->save();
 
             $category1 = factory(Category::class)->create([
@@ -113,7 +113,7 @@ class CategoriesTableSeeder extends Seeder
             'show_in' => 2,
         ]);
         $category = $category->translate('uz');
-        $category->name = 'Семяна';
+        $category->name = 'Urugʻlar';
         $category->save();
 
 //        factory(Category::class, 10)->create();

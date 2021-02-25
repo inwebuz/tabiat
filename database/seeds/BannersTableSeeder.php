@@ -13,7 +13,7 @@ class BannersTableSeeder extends Seeder
     public function run()
     {
         // slide
-        Banner::create([
+        $banner = Banner::create([
             'name' => '01',
             'description_top' => 'Семяна и удобрения',
             'description' => 'для сельского хозяйства',
@@ -23,6 +23,12 @@ class BannersTableSeeder extends Seeder
             'url' => '#',
             'status' => '1',
         ]);
+            $banner = $banner->translate('uz');
+            $banner->description_top = 'Urugʻlar va oʻgʻitlar';
+            $banner->description = 'qishloq xoʻjaligi uchun';
+            $banner->button_text = 'Katalogni yuklab oling';
+            $banner->save();
+
         // Banner::create([
         //     'name' => '02',
         //     'description_top' => '2 Новая коллекция',
