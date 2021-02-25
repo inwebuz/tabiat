@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @include('partials.page_top', ['title' => $publication->short_name_text, 'bg' => $publication->bg])
+    @include('partials.page_top', ['title' => $publication->name, 'bg' => $publication->bg])
 
     <section class="section-block">
         <div class="container">
