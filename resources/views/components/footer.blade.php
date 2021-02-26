@@ -90,7 +90,7 @@
                                     <textarea name="message" id="c_maesage" cols="5" placeholder="{{ __('main.message') }}"></textarea>
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-primary bounceIn wow" data-wow-delay=".8s">{{ __('main.to_send') }}</button>
+                            <button type="submit" class="btn btn-primary px-4 bounceIn wow" data-wow-delay=".8s">{{ __('main.to_send') }}</button>
                         </div>
                         <div class="form-result"></div>
                     </form>
@@ -303,7 +303,7 @@
                         <textarea class="form-control" name="message" id="message" rows="4" placeholder="{{ __('main.form.message') }}" required ></textarea>
                     </div>
                     <div class="text-right">
-                        <button class="btn btn-primary" type="submit">
+                        <button class="btn btn-primary px-4" type="submit">
                             {{ __('main.form.send') }}
                         </button>
                     </div>

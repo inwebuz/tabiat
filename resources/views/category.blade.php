@@ -38,7 +38,9 @@
                                         </div>
                                     @endforeach
                                 </div>
-                                {!! $links !!}
+                                <div class="my-4">
+                                    {!! $links !!}
+                                </div>
                             </div>
                         @else
                             <div class="lead">

@@ -662,7 +662,7 @@ class DataRowsTableSeeder extends StandardSeeder
                 'method' => 'statusDropdownRow',
             ],
             'specifications' => [
-                'method' => 'hiddenRow',
+                'method' => 'bodyRow',
                 'data' => [
                     'display_name' => __('seeders.data_rows.specifications'),
                     'required' => 0,

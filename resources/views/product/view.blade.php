@@ -93,6 +93,14 @@
         </section>
     @endif
 
+    <section class="section-block">
+        <div class="container">
+            <div class="py-4 text-block">
+                {!! $product->specifications !!}
+            </div>
+        </div>
+    </section>
+
 
 @endsection
 

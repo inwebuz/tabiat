@@ -22,7 +22,7 @@
             </div>
 
             @if($links)
-                <div class="mb-5 pt-4 border-top border-top-light">
+                <div class="my-4">
                     {!! $links !!}
                 </div>
             @endif

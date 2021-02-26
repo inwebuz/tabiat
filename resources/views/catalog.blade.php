@@ -22,7 +22,9 @@
                 @endforeach
             </div>
 
-            {!! $links !!}
+            <div class="my-4">
+                {!! $links !!}
+            </div>
 
 
             @if ($page->body)
