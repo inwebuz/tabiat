@@ -839,7 +839,6 @@ p strong {
     -ms-flex-pack: center;
     justify-content: center;
     background: url("../img/hero/background.jpg") no-repeat center/cover;
-    min-height: 720px;
     position: relative;
     overflow: hidden;
     height: 100vh;
@@ -1712,10 +1711,6 @@ p strong {
     .burger span::after {
         height: 2px;
     }
-    .hero {
-        height: initial;
-        min-height: 500px;
-    }
     .about {
         padding-top: 50px;
         padding-bottom: 50px;
@@ -1779,9 +1774,6 @@ p strong {
     }
     .burger-menu .call-link {
         font-size: 20px;
-    }
-    .hero {
-        min-height: 450px;
     }
     .about {
         padding-top: 30px;
@@ -1903,9 +1895,6 @@ p strong {
     .burger-menu .burger-menu__list {
         margin-bottom: 20px;
     }
-    .hero {
-        min-height: 480px;
-    }
     .hero-sub__title {
         font-size: 15px;
     }
@@ -1966,9 +1955,6 @@ p strong {
     .header-right__content .search-link,
     .header-right__content .selectric-selectric {
         margin-right: 20px;
-    }
-    .hero {
-        min-height: 420px;
     }
     .hero-sub__title {
         font-size: 13px;
