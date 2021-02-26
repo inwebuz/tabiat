@@ -87,7 +87,7 @@
                 <h2 class="text-center fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">{{ __('main.news') }}</h2>
                 <div class="row news-wrap">
                     @foreach ($news as $key => $publication)
-                        <div class="col-lg-4 col-sm-6 fadeInRightBig wow" data-wow-delay=".{{ $key + 2 }}s" data-wow-duration=".5s">
+                        <div class="col-lg-4 col-sm-6">
                             @include('partials.news_one')
                         </div>
                     @endforeach
@@ -99,7 +99,7 @@
                 </div>
                 <div class="row logo-items">
                     @foreach ($brands as $key => $brand)
-                        <div class="col-lg-2 col-sm-4 col-6 fadeInRightBig wow" data-wow-delay=".{{ $key + 1 }}s" data-wow-duration=".5s">
+                        <div class="col-lg-2 col-sm-4 col-6">
                             <img src="{{ $brand->img }}" alt="{{ $brand->name }}" class="img-fluid">
                         </div>
                     @endforeach

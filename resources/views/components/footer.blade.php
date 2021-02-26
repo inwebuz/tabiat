@@ -90,7 +90,7 @@
                                     <textarea name="message" id="c_maesage" cols="5" placeholder="{{ __('main.message') }}"></textarea>
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-primary px-4 bounceIn wow" data-wow-delay=".8s">{{ __('main.to_send') }}</button>
+                            <button type="submit" class="btn btn-primary px-4 fadeInUp wow" data-wow-delay=".6s">{{ __('main.to_send') }}</button>
                         </div>
                         <div class="form-result"></div>
                     </form>
@@ -136,7 +136,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-4 footer-logo">
-                    <div class="footer-logo fadeInLeft wow" data-wow-delay=".2s" data-wow-duration=".5s">
+                    <div class="footer-logo" >
                         <a href="https://inweb.uz" target="_blank" class="d-inline-block">
                             {{ __('main.developer') }} —
                             <img src="/img/icons/footer-logo.png" alt="">
