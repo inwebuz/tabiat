@@ -7,14 +7,6 @@
 
 @section('content')
 
-    @can('edit', $product->getModel())
-        <div class="container">
-            <div class="my-4">
-                <a href="{{ url('admin/products/' . $product->id . '/edit') }}" class="btn btn-lg btn-primary" target="_blank">Редактировать (SKU: {{ $product->sku }}, ID: {{ $product->id }})</a>
-            </div>
-        </div>
-    @endcan
-
     @include('partials.page_top', ['bg' => '', 'title' => $category->name]);
 
     <div class="container">
@@ -33,6 +25,12 @@
                     </div>
 
                     <h2 class="product-header">{{ $product->name }}</h2>
+
+                    @can('edit', $product->getModel())
+                        <div class="my-4">
+                            <a href="{{ url('admin/products/' . $product->id . '/edit') }}" class="btn btn-primary" target="_blank">Редактировать</a>
+                        </div>
+                    @endcan
 
                     @if ($product->description)
                         <div class="box mt-1">
@@ -99,6 +97,7 @@
                 {!! $product->specifications !!}
             </div>
         </div>
+        <x-partners></x-partners>
     </section>
 
 

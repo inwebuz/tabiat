@@ -79,7 +79,7 @@
             </div>
         </section>
 
-        <section class="news section-block">
+        <section class="news section-block pb-0">
             <div class="container">
                 <p class="sub-title text-center fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
                     <a href="{{ route('news') }}">{{ __('main.all_news') }}</a>
@@ -97,14 +97,11 @@
                         {!! $page->body !!}
                     </div>
                 </div>
-                <div class="row logo-items">
-                    @foreach ($brands as $key => $brand)
-                        <div class="col-lg-2 col-sm-4 col-6">
-                            <img src="{{ $brand->img }}" alt="{{ $brand->name }}" class="img-fluid">
-                        </div>
-                    @endforeach
-                </div>
             </div>
+        </section>
+
+        <section class="section-block pt-0">
+            <x-partners></x-partners>
         </section>
 
     </main>
