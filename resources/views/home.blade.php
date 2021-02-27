@@ -26,7 +26,7 @@
             </div>
         </section>
 
-        <section class="about section-block">
+        <section class="about section-block full-section-block">
             <div class="container">
                 <div class="row about-wrap">
                     <div class="col-lg-6 about-left">
@@ -42,7 +42,7 @@
             </div>
         </section>
 
-        <section class="catalog bg-light-green section-block section-pattern-top section-pattern-bottom">
+        <section class="catalog bg-light-green section-block section-pattern-top section-pattern-bottom full-section-block">
             <div class="container">
                 <p class="sub-title text-center fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
                     <a href="{{ $pageCatalog->url }}">{{ $pageCatalog->name }}</a>
@@ -79,7 +79,7 @@
             </div>
         </section>
 
-        <section class="news section-block pb-0">
+        <section class="news section-block pb-0 full-section-block">
             <div class="container">
                 <p class="sub-title text-center fadeInUp wow" data-wow-delay=".2s" data-wow-duration=".5s">
                     <a href="{{ route('news') }}">{{ __('main.all_news') }}</a>

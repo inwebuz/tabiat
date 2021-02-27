@@ -328,6 +328,13 @@ body {
     font-family: "Gilroy", sans-serif;
 }
 
+.full-section-block {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .section-block {
     padding: 75px 0;
 }
