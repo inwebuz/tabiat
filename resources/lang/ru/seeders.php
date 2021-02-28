@@ -266,7 +266,7 @@ return [
             'singular' => 'Баннер',
             'plural' => 'Баннеры',
         ],
-        'publications' => [
+        'publication' => [
             'singular' => 'Публикация',
             'plural' => 'Публикации',
         ],
