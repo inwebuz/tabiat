@@ -251,14 +251,14 @@
                                             </td>
                                         @endforeach
                                         <td class="no-sort no-click bread-actions">
-                                            <a href="{{ route('voyager.products.attributes.edit', $data->id) }}" class="btn btn-sm btn-success pull-right m-5">
+                                            {{-- <a href="{{ route('voyager.products.attributes.edit', $data->id) }}" class="btn btn-sm btn-success pull-right m-5">
                                                 <i class="voyager-categories"></i>
                                                 <span class="hidden-xs hidden-sm">Атрибуты</span>
                                             </a>
                                             <a href="{{ route('voyager.products.variants', $data->id) }}" class="btn btn-sm btn-success pull-right m-5">
                                                 <i class="voyager-lab"></i>
                                                 <span class="hidden-xs hidden-sm">Варианты</span>
-                                            </a>
+                                            </a> --}}
                                             @foreach($actions as $action)
                                                 @if (!method_exists($action, 'massAction'))
                                                     @include('voyager::bread.partials.actions', ['action' => $action])

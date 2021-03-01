@@ -20,7 +20,7 @@
 @stop
 
 @section('content')
-    @if($edit)
+    {{-- @if($edit)
         <div class="container-fluid" style="margin-bottom: 20px;">
             <a href="{{ route('voyager.products.attributes.edit', $dataTypeContent->getKey()) }}" class="btn btn-sm btn-info m-5">
                 <i class="voyager-categories"></i>
@@ -31,7 +31,7 @@
                 <span class="hidden-xs hidden-sm">Варианты</span>
             </a>
         </div>
-    @endif
+    @endif --}}
 
     <div class="page-content edit-add container-fluid">
         <div class="row">
