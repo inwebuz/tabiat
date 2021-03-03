@@ -5,6 +5,7 @@ namespace App;
 use App\Events\ModelDeleted;
 use App\Events\ModelSaved;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use TCG\Voyager\Facades\Voyager;
@@ -55,7 +56,7 @@ class Publication extends Model
         //'large' => [685, 480],
     ];
 
-    protected $translatable = ['name', 'short_name', 'description', 'body', 'additional_info', 'seo_title', 'meta_description', 'meta_keywords'];
+    protected $translatable = ['name', 'slug', 'short_name', 'description', 'body', 'additional_info', 'seo_title', 'meta_description', 'meta_keywords'];
 
     protected $guarded = [];
 
@@ -171,9 +172,22 @@ class Publication extends Model
     /**
      * Get url
      */
-    public function getUrlAttribute()
+    public function getURLAttribute()
     {
-        return LaravelLocalization::localizeURL('publications/' . $this->id . '-' . $this->slug);
+        return $this->getURL();
+    }
+
+    /**
+     * Get url
+     */
+    public function getURL($lang = '')
+    {
+        if (!$lang) {
+            $lang = app()->getLocale();
+        }
+        $slug = $this->getTranslatedAttribute('slug', $lang) ?: $this->slug;
+        $url = 'publications/' . $this->id . '-' . $slug;
+        return LaravelLocalization::localizeURL($url, $lang);
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Events\ModelSaved;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Models\Translation;
@@ -34,7 +35,7 @@ class Category extends Model
         'medium' => [400, 400],
     ];
 
-    protected $translatable = ['name', 'description', 'body', 'seo_title', 'meta_description', 'meta_keywords'];
+    protected $translatable = ['name', 'slug', 'description', 'body', 'seo_title', 'meta_description', 'meta_keywords'];
 
     protected $guarded = [];
 
@@ -128,7 +129,20 @@ class Category extends Model
      */
     public function getURLAttribute()
     {
-        return LaravelLocalization::localizeURL('category/' . $this->id . '-' . $this->slug);
+        return $this->getURL();
+    }
+
+    /**
+     * Get url
+     */
+    public function getURL($lang = '')
+    {
+        if (!$lang) {
+            $lang = app()->getLocale();
+        }
+        $slug = $this->getTranslatedAttribute('slug', $lang) ?: $this->slug;
+        $url = 'category/' . $this->id . '-' . $slug;
+        return LaravelLocalization::localizeURL($url, $lang);
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Events\ModelSaved;
 use App\Helpers\Helper;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use TCG\Voyager\Facades\Voyager;
@@ -43,7 +44,7 @@ class Product extends Model
         'large' => [685, 751],
     ];
 
-    protected $translatable = ['name', 'description', 'body', 'specifications', 'seo_title', 'meta_description', 'meta_keywords'];
+    protected $translatable = ['name', 'slug', 'description', 'body', 'specifications', 'seo_title', 'meta_description', 'meta_keywords'];
 
     protected $guarded = [];
 
@@ -170,7 +171,20 @@ class Product extends Model
      */
     public function getURLAttribute()
     {
-        return LaravelLocalization::localizeURL('product/' . $this->id . '-' . $this->slug);
+        return $this->getURL();
+    }
+
+    /**
+     * Get url
+     */
+    public function getURL($lang = '')
+    {
+        if (!$lang) {
+            $lang = app()->getLocale();
+        }
+        $slug = $this->getTranslatedAttribute('slug', $lang) ?: $this->slug;
+        $url = 'product/' . $this->id . '-' . $slug;
+        return LaravelLocalization::localizeURL($url, $lang);
     }
 
     /**

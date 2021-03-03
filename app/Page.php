@@ -47,7 +47,7 @@ class Page extends Model
         'medium' => [400, 300],
     ];
 
-    protected $translatable = ['name', 'short_name', 'description', 'body', 'additional_info', 'seo_title', 'meta_description', 'meta_keywords'];
+    protected $translatable = ['name', 'slug', 'short_name', 'description', 'body', 'additional_info', 'seo_title', 'meta_description', 'meta_keywords'];
 
     protected $guarded = [];
 
@@ -110,8 +110,20 @@ class Page extends Model
      */
     public function getURLAttribute()
     {
-        $url = Route::has($this->slug) ? route($this->slug) : 'page/' . $this->id . '-' . $this->slug;
-        return LaravelLocalization::localizeURL($url);
+        return $this->getURL();
+    }
+
+    /**
+     * Get url
+     */
+    public function getURL($lang = '')
+    {
+        if (!$lang) {
+            $lang = app()->getLocale();
+        }
+        $slug = $this->getTranslatedAttribute('slug', $lang) ?: $this->slug;
+        $url = Route::has($this->slug) ? route($this->slug) : 'page/' . $this->id . '-' . $slug;
+        return LaravelLocalization::localizeURL($url, $lang);
     }
 
     /**

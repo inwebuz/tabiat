@@ -444,13 +444,13 @@ class DataRowsTableSeeder extends StandardSeeder
                     'delete' => 1,
                 ],
             ],
-            'category_belongsto_gender_relationship' => [
-                'method' => 'relationshipRow',
-                'data'   => [
-                    'display_name' => __('seeders.data_rows.gender'),
-                    'details' => $this->relationship(Gender::class, 'genders', 'belongsTo', 'gender_id', 'id', 'name'),
-                ],
-            ],
+            // 'category_belongsto_gender_relationship' => [
+            //     'method' => 'relationshipRow',
+            //     'data'   => [
+            //         'display_name' => __('seeders.data_rows.gender'),
+            //         'details' => $this->relationship(Gender::class, 'genders', 'belongsTo', 'gender_id', 'id', 'name'),
+            //     ],
+            // ],
 
             'image' => [
                 'method' => 'imageRow',
@@ -474,7 +474,7 @@ class DataRowsTableSeeder extends StandardSeeder
                 'method' => 'dropdownRow',
                 'data' => [
                     'display_name' => __('seeders.data_rows.show_in'),
-                    'details' => $this->dropdown(Category::SHOW_IN_MENU, Category::showInPlaces())
+                    'details' => $this->dropdown(Category::SHOW_IN_NONE, Category::showInPlaces())
                 ],
             ],
         ];
