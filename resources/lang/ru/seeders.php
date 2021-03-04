@@ -473,6 +473,7 @@ return [
             'phone_value' => '+99800 000-00-00',
             'telegram' => 'Ссылка Telegram',
             'telegram_value' => '#',
+            'whatsapp' => 'Ссылка Whatsapp',
             'work_hours' => 'Режим работы',
             'work_hours_value' => 'Пн - Пт, 9:00 - 18:00',
         ],

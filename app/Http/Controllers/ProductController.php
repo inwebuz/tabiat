@@ -67,7 +67,7 @@ class ProductController extends Controller
                 $subcategoriesParentCategoryID = $parent->id;
                 $breadcrumbs->addItem(new LinkItem($parent->name, $parent->url));
             }
-            $similar_products = $category->products()->active()->where('products.id', '!=', $product->id)->latest()->take(4)->get();
+            $similar_products = $category->products()->active()->where('products.id', '!=', $product->id)->latest()->take(12)->get();
             $similar_products = $similar_products->translate();
 
             $category = Helper::translation($category);

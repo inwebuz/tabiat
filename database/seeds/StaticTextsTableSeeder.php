@@ -12,11 +12,11 @@ class StaticTextsTableSeeder extends Seeder
      */
     public function run()
     {
-//        for ($i = 1; $i <= 4; $i++) {
-//            factory(StaticText::class)->create([
-//                'key' => 'footer_text_' . $i,
-//            ]);
-//        }
+        // for ($i = 1; $i <= 4; $i++) {
+        //     factory(StaticText::class)->create([
+        //         'key' => 'footer_text_' . $i,
+        //     ]);
+        // }
 
         // principles
         // factory(StaticText::class)->create([
@@ -43,6 +43,22 @@ class StaticTextsTableSeeder extends Seeder
             $staticText = $staticText->translate('uz');
             $staticText->description = '100170 Oʻzbekiston Respublikasi, Toshkent sh. Sayram k-si, 174';
             $staticText->save();
+
+        factory(StaticText::class)->create([
+            'name' => 'Преимущество 1',
+            'key' => 'advantages_1',
+            'description' => 'Постоянно повышать качество и эффективность',
+        ]);
+        factory(StaticText::class)->create([
+            'name' => 'Преимущество 2',
+            'key' => 'advantages_2',
+            'description' => 'Иметь возможность принимать заказы онлайн',
+        ]);
+        factory(StaticText::class)->create([
+            'name' => 'Преимущество 3',
+            'key' => 'advantages_3',
+            'description' => 'В нашей деятельности применять только современные подходы, отвечающие всем стандартам',
+        ]);
 
         /*// footer text
         factory(StaticText::class)->create([

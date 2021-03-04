@@ -76,15 +76,34 @@
     @if(!$similar_products->isEmpty())
         <section class="section-block bg-light-green section-pattern-top section-pattern-bottom">
             <div class="container">
-                <h2 class="main-header text-center text-md-left">{{ __('main.similar_products') }}</h2>
-
-                <div class="products-list">
-                    <div class="row">
-                        @foreach($similar_products as $similar_product)
-                            <div class="col-xl-3 col-lg-4 col-md-6">
-                                @include('partials.product_one', ['product' => $similar_product])
+                <h2 class="text-center mb-5 fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">{{ __('main.similar_products') }}</h2>
+                <div class="row catalog-wrap">
+                    <div class="col-lg-12">
+                        <div class="catalog-swiper">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    @foreach ($similar_products as $key => $similar_product)
+                                        <div class="swiper-slide fadeInRightBig wow" @if($key < 5) data-wow-delay=".{{ $key + 1 }}s" data-wow-duration=".5s" @endif>
+                                            <div class="px-lg-4">
+                                                @include('partials.product_one', ['product' => $similar_product])
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
-                        @endforeach
+                            <div class="swiper-arrows">
+                                <div class="swiper-button-prev">
+                                    <svg width="18" height="18">
+                                        <use xlink:href="#swiper-arrow"></use>
+                                    </svg>
+                                </div>
+                                <div class="swiper-button-next">
+                                    <svg width="18" height="18">
+                                        <use xlink:href="#swiper-arrow"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

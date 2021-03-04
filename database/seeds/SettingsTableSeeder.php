@@ -333,6 +333,18 @@ class SettingsTableSeeder extends Seeder
             ])->save();
         }
 
+        $setting = $this->findSetting('contact.whatsapp');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('seeders.settings.contact.whatsapp'),
+                'value'        => '#',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 83,
+                'group'        => 'Contact',
+            ])->save();
+        }
+
         // $setting = $this->findSetting('currency.usd');
         // if (!$setting->exists) {
         //     $setting->fill([

@@ -95,12 +95,12 @@
 
                     <div id="language-block" class="dropdown mr-4">
                         <a href="{{ $switcher->getActive()->url }}" class="text-uppercase dropdown-toggle white-link" data-toggle="dropdown">
-                            {{ $switcher->getActive()->key }}
+                            {{  __('main.language_key_' . $switcher->getActive()->key) }}
                         </a>
                         <ul class="dropdown-menu">
                             @foreach ($switcher->getValues() as $item)
                                 <li>
-                                    <a href="{{ $item->url }}" class="dropdown-item text-uppercase">{{ $item->key }}</a>
+                                    <a href="{{ $item->url }}" class="dropdown-item text-uppercase">{{ __('main.language_key_' . $item->key) }}</a>
                                 </li>
                             @endforeach
                         </ul>

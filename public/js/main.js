@@ -65,34 +65,46 @@ $(function () {
 
 
     // Swipers
+    let catalogSwiper = $('.catalog-swiper');
+    if (catalogSwiper.length) {
+        catalogSwiper.each(function(){
+            let catalogContainer = $(this);
+            new Swiper(catalogContainer.find('.swiper-container')[0], {
+                spaceBetween: 30,
+                navigation: {
+                    nextEl: catalogContainer.find('.swiper-button-next')[0],
+                    prevEl: catalogContainer.find('.swiper-button-prev')[0],
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 2,
+                        slidesPerGroup: 2
+                    },
+                    576: {
+                        slidesPerView: 2,
+                        slidesPerGroup: 2
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        slidesPerGroup: 3
+                    },
+                    992: {
+                        slidesPerView: 4,
+                        slidesPerGroup: 4
+                    },
+                    1200: {
+                        slidesPerView: 4,
+                        slidesPerGroup: 4
+                    }
+                }
+            });
+        });
+    }
 
-    let catagolSwiper = new Swiper('.catalog-swiper .swiper-container', {
-        spaceBetween: 30,
-        navigation: {
-            nextEl: '.catalog-swiper .swiper-button-next',
-            prevEl: '.catalog-swiper .swiper-button-prev',
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 2,
-                slidesPerGroup: 2
-            },
-            576: {
-                slidesPerView: 2,
-                slidesPerGroup: 2
-            },
-            768: {
-                slidesPerView: 3,
-                slidesPerGroup: 3
-            },
-            992: {
-                slidesPerView: 4,
-                slidesPerGroup: 4
-            },
-            1200: {
-                slidesPerView: 4,
-                slidesPerGroup: 4
-            }
+    // home slider
+    $('.home-slider-container').length && new Swiper('.home-slider-container', {
+        autoplay: {
+          delay: 5000,
         }
     });
 

@@ -27,18 +27,23 @@ class BannersTableSeeder extends Seeder
             $banner->description_top = 'Urugʻlar va oʻgʻitlar';
             $banner->description = 'qishloq xoʻjaligi uchun';
             $banner->button_text = 'Katalogni yuklab oling';
-            $banner->save();
+            $banner->save();// slide
 
-        // Banner::create([
-        //     'name' => '02',
-        //     'description_top' => '2 Новая коллекция',
-        //     'description' => 'Заглядывайте к нам чаще! Вы непременно найдете что-то интересное',
-        //     'button_text' => 'Подробнее',
-        //     'type' => 'slide',
-        //     'image' => 'banners/02.jpg',
-        //     'url' => '#',
-        //     'status' => '1',
-        // ]);
+        $banner2 = Banner::create([
+            'name' => '02',
+            'description_top' => '2Семяна и удобрения',
+            'description' => '2для сельского хозяйства',
+            'button_text' => '2Скачать каталог',
+            'type' => 'slide',
+            'image' => 'banners/02.jpg',
+            'url' => '#',
+            'status' => '1',
+        ]);
+            $banner2 = $banner->translate('uz');
+            $banner->description_top = '2Urugʻlar va oʻgʻitlar';
+            $banner->description = '2qishloq xoʻjaligi uchun';
+            $banner->button_text = '2Katalogni yuklab oling';
+            $banner->save();
 
         // sidebar
         Banner::create([

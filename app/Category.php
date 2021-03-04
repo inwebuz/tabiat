@@ -241,6 +241,14 @@ class Category extends Model
     /**
      * scope active
      */
+    public function scopeOnHomePage($query)
+    {
+        return $query->whereIn('show_in', [self::SHOW_IN_HOME, self::SHOW_IN_EVERYWHERE]);
+    }
+
+    /**
+     * scope active
+     */
     public function scopeParents($query)
     {
         return $query->where('parent_id', null);

@@ -6,8 +6,9 @@
     $telegram = setting('contact.telegram');
     $facebook = setting('contact.facebook');
     $instagram = setting('contact.instagram');
+    $whatsapp = setting('contact.whatsapp');
 @endphp
-<footer class="footer section-pattern-top">
+<footer class="footer">
     <div class="footer-top">
         <div class="container">
             <div class="row footer-top__wrap">
@@ -129,6 +130,15 @@
                                 <a href="{{ $instagram }}">
                                     <svg width="20" height="20">
                                         <use xlink:href="#instagram"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        @endif
+                        @if ($whatsapp)
+                            <li class="fadeInLeft wow" data-wow-delay="1.1s" data-wow-duration=".5s">
+                                <a href="{{ $whatsapp }}">
+                                    <svg width="20" height="20">
+                                        <use xlink:href="#whatsapp"></use>
                                     </svg>
                                 </a>
                             </li>
