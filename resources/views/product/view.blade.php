@@ -74,7 +74,7 @@
     </section>
 
     @if(!$similar_products->isEmpty())
-        <section class="section-block bg-light-green section-pattern-top section-pattern-bottom">
+        <section class="section-block bg-light-green">
             <div class="container">
                 <h2 class="text-center mb-5 fadeInUp wow" data-wow-delay=".3s" data-wow-duration=".5s">{{ __('main.similar_products') }}</h2>
                 <div class="row catalog-wrap">
