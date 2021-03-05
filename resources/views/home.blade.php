@@ -10,7 +10,7 @@
         <div class="home-slider-container swiper-container">
             <div class="home-slider swiper-wrapper">
                 @foreach ($slides as $slide)
-                    <section class="hero section-block swiper-slide">
+                    <section class="hero section-block swiper-slide" @if($slide->image) style="background-image: url({{ $slide->img }});" @endif>
                         {{-- <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
                             <source src="/media/video.mp4" type="video/mp4">
                         </video> --}}
