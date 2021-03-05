@@ -102,11 +102,21 @@ $(function () {
     }
 
     // home slider
-    $('.home-slider-container').length && new Swiper('.home-slider-container', {
-        autoplay: {
-          delay: 5000,
-        }
-    });
+    let homeSliderContainer = $('.home-slider-container');
+    if (homeSliderContainer.length) {
+        let homeSliderPagination = homeSliderContainer.find('.swiper-pagination');
+        new Swiper('.home-slider-container', {
+            loop: true,
+            autoplay: {
+              delay: 5000,
+            },
+            pagination: {
+                el: homeSliderPagination[0],
+                clickable: true
+            },
+        });
+    }
+
 
     /* contact form */
     $('.contact-form').on('submit', function(e) {
