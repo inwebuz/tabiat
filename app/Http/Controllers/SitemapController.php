@@ -45,7 +45,7 @@ class SitemapController extends Controller
             }
         }
 
-        echo "Links: " . count($all);
+        // echo "Links: " . count($all);
 
         $all = array_chunk($all, 9000);
         foreach ($all as $key => $urls) {
@@ -53,10 +53,7 @@ class SitemapController extends Controller
         }
 
         // get public folder path
-        $publicDir = base_path('../public_html');
-        if (!is_dir($publicDir)) {
-            $publicDir = public_path();
-        }
+        $publicDir = $this->getPublicDir();
 
         // delete old files
         foreach ($oldFiles as $oldFile) {
@@ -77,5 +74,25 @@ class SitemapController extends Controller
         $sitemapLastmod = (Carbon::now())->format(DateTime::ATOM);
         $sitemapIndexContent = view('sitemapindex', compact('filesQuantity', 'sitemapLastmod'))->render();
         file_put_contents($publicDir . '/sitemapindex.xml', $sitemapIndexContent);
+    }
+
+    public function index()
+    {
+        $this->create();
+        $publicDir = $this->getPublicDir();
+
+        return response(file_get_contents($publicDir . '/sitemapindex.xml'))
+            ->withHeaders([
+                'Content-Type' => 'text/xml'
+            ]);
+    }
+
+    private function getPublicDir()
+    {
+        $publicDir = base_path('../public_html');
+        if (!is_dir($publicDir)) {
+            $publicDir = public_path();
+        }
+        return $publicDir;
     }
 }

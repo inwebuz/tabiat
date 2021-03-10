@@ -78,6 +78,7 @@ Route::group(
     Route::get('/', "HomeController@index")->name('home');
     Route::get('/home/latest-products/{category}', "HomeController@latestProducts")->name('home.latest-products');
 
+    Route::get('/sitemap/index', "SitemapController@index")->name('sitemap.index');
     Route::get('/sitemap/create', "SitemapController@create")->name('sitemap.create');
 
 
