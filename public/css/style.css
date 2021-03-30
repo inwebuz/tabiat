@@ -469,7 +469,7 @@ p strong {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
-    max-width: 150px;
+    max-width: 180px;
 }
 .header .logo a {
     display: block;

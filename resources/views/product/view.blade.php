@@ -23,6 +23,21 @@
                             <img src="{{ $product->large_img }}" class="img-fluid" alt="{{ $product->name }}">
                         </a>
                     </div>
+                    @php
+                        // dd($product->micro_imgs);
+                    @endphp
+                    @if ($product->imgs)
+                        <div class="product-img-gallery row mb-4">
+                            @foreach ($product->small_imgs as $key => $smallImg)
+                                <div class="col-lg-3 col-4">
+                                    <a href="{{ $product->imgs[$key] }}" data-fancybox="gallery" class="d-block mb-3">
+                                        <img src="{{ $smallImg}}" class="img-fluid" alt="{{ $product->name . ' ' . $key }}">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
+
 
                     <h2 class="product-header">{{ $product->name }}</h2>
 
