@@ -151,7 +151,7 @@ class Helper
     public static function banners($type)
     {
         // $banners = Banner::where('type', $type)->active()->nowActive()->latest()->get();
-        $banners = Banner::where('type', $type)->active()->withTranslation(app()->getLocale())->latest()->get();
+        $banners = Banner::where('type', $type)->active()->withTranslation(app()->getLocale())->orderBy('order')->latest()->get();
         if (!$banners) {
             $banners = Banner::where([['type', $type], ['shop_id', null]])->active()->withTranslation(app()->getLocale())->latest()->get();
         }

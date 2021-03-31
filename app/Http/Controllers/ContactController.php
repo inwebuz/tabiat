@@ -14,6 +14,7 @@ use App\Page;
 use App\Product;
 use App\Helpers\Helper;
 use App\Mail\ContactMail;
+use App\StaticText;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Exception\RequestException;
@@ -28,7 +29,10 @@ class ContactController extends Controller
         $page = Helper::translation(Page::find(2)); // contacts page
         $breadcrumbs = new Breadcrumbs();
         $breadcrumbs->addItem(new LinkItem(__('main.nav.contacts'), route('contacts'), LinkItem::STATUS_INACTIVE));
-        return view('contacts', compact('breadcrumbs', 'page'));
+
+        $address = StaticText::where('key', 'contact_address')->first()->translate()->description;
+
+        return view('contacts', compact('breadcrumbs', 'page', 'address'));
     }
 
     /**

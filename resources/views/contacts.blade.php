@@ -24,7 +24,7 @@
                             <svg width="20" height="20">
                                 <use xlink:href="#marker"></use>
                             </svg>
-                            <span>{{ setting('contact.address') }}</span>
+                            <span>{{ $address }}</span>
                         </div>
                     </div>
                     <div class="media contact-info mb-3">

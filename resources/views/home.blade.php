@@ -93,7 +93,7 @@
         @endforeach
 
         @if (!$news->isEmpty())
-            <section class="news bg-light-green section-block full-section-block">
+            <section class="news bg-light-green section-block">
                 <div class="container">
                     <p class="sub-title text-center fadeInUp wow" data-wow-delay=".1s" data-wow-duration=".5s">
                         <a href="{{ route('news') }}">{{ __('main.all_news') }}</a>

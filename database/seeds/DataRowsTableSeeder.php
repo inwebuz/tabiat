@@ -376,6 +376,9 @@ class DataRowsTableSeeder extends StandardSeeder
 //                    'display_name' => __('seeders.data_rows.active_to'),
 //                ],
 //            ],
+            'shop_id' => [
+                'method' => 'hiddenRow',
+            ],
             'active_from' => [
                 'method' => 'hiddenRow',
                 'data' => [
@@ -390,6 +393,13 @@ class DataRowsTableSeeder extends StandardSeeder
             ],
             'timer' => [
                 'method' => 'hiddenRow',
+            ],
+            'order' => [
+                'method' => 'numberRow',
+                'data' => [
+                    'display_name' => __('seeders.data_rows.display_order'),
+                    'browse' => 1,
+                ],
             ],
         ];
         $this->saveRows($dataType, $rows);
