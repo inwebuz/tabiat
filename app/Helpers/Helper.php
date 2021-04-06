@@ -233,19 +233,48 @@ class Helper
      */
     public static function languageSwitcher()
     {
+        $route = Route::current();
+        $routeName = Route::currentRouteName();
         $switcher = new LanguageSwitcher();
-        $url = url()->current();
         $currentLocale = app()->getLocale();
-        foreach (config('laravellocalization.supportedLocales') as $key => $value) {
-            $value['url'] = LaravelLocalization::localizeURL($url, $key);
-            $linkItem = new LinkItem($value['native'], $value['url']);
-            $linkItem->key = $key;
-            if ($key == $currentLocale) {
-                // $linkItem->setActive();
-                $switcher->setActive($linkItem);
+
+        $foundModel = false;
+        $hasSlugRoutes = ['page', 'category', 'publications.show', 'product'];
+        foreach($hasSlugRoutes as $hasSlugRoute) {
+            if ($routeName == $hasSlugRoute) {
+                $routeParams = array_values($route->parameters);
+                $model = array_shift($routeParams);
+                $url = $model->url;
+
+                foreach (config('laravellocalization.supportedLocales') as $key => $value) {
+                    $model = $model->translate($key);
+                    $value['url'] = $model->getModel()->getURL($key);
+                    $linkItem = new LinkItem($value['native'], $value['url']);
+                    $linkItem->key = $key;
+                    if ($key == $currentLocale) {
+                        $switcher->setActive($linkItem);
+                    }
+                    $switcher->addValue($linkItem);
+                }
+                $foundModel = true;
+                break;
             }
-            $switcher->addValue($linkItem);
         }
+
+        if (!$foundModel) {
+            $url = url()->current();
+            foreach (config('laravellocalization.supportedLocales') as $key => $value) {
+                $value['url'] = LaravelLocalization::localizeURL($url, $key);
+                $linkItem = new LinkItem($value['native'], $value['url']);
+                $linkItem->key = $key;
+                if ($key == $currentLocale) {
+                    // $linkItem->setActive();
+                    $switcher->setActive($linkItem);
+                }
+                $switcher->addValue($linkItem);
+            }
+        }
+
         return $switcher;
     }
 
