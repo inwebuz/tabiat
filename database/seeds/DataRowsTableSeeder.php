@@ -773,6 +773,13 @@ class DataRowsTableSeeder extends StandardSeeder
 //                'method' => 'hiddenNumberRow',
 //                'data'   => [],
 //            ],
+            'order' => [
+                'method' => 'numberRow',
+                'data' => [
+                    'display_name' => __('seeders.data_rows.display_order'),
+                    'browse' => 1,
+                ],
+            ],
         ];
 
         $this->saveRows($dataType, $rows);

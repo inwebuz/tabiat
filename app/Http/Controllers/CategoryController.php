@@ -60,6 +60,10 @@ class CategoryController extends Controller
         $sort = $sortRaw[0];
         $order = $sortRaw[1];
 
+        // temp
+        $sort = 'order';
+        $order = 'asc';
+
         // min and max price (per month)
         $prices = [];
         $categoryPrices = [];
