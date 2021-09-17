@@ -25,7 +25,7 @@ class Partners extends Component
      */
     public function render()
     {
-        $brands = Brand::active()->latest()->take(20)->get()->translate();
+        $brands = Brand::active()->orderBy('order')->latest()->take(20)->get()->translate();
 
         return view('components.partners', compact('brands'));
     }

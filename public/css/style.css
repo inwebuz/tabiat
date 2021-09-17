@@ -454,6 +454,12 @@ p strong {
     transition: 0.1s all ease;
     z-index: 12;
 }
+.header.header-static {
+    /* position: static; */
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 .header .header-wrap {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -510,7 +516,7 @@ p strong {
     margin-right: 0;
 }
 .navbar .nav-link {
-    font-size: 19px;
+    font-size: 18px;
     color: #fff;
     line-height: 1.2;
     padding: 0;
@@ -522,7 +528,7 @@ p strong {
 }
 .header .call-link {
     display: block;
-    font-size: 19px;
+    font-size: 18px;
     color: #fff;
     line-height: 1.2;
 }
@@ -641,6 +647,16 @@ p strong {
     text-transform: uppercase;
     text-align: center;
 }
+
+main.main {
+    padding-top: 110px;
+}
+@media screen and (max-width: 1199px) {
+    main.main {
+        padding-top: 80px;
+    }
+}
+
 .header.js-header-fixed {
     background-color: #fff;
     box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.16);
@@ -650,20 +666,29 @@ p strong {
 .header.js-header-fixed .logo {
     max-width: 150px;
 }
+@media screen and (max-width: 1199px) {
+    .header.js-header-fixed .logo {
+        max-width: 100px;
+    }
+}
 .header.js-header-fixed .navbar .nav-list {
     /* margin-right: 50px; */
 }
 .header.js-header-fixed .navbar .nav-link {
-    color: #333;
+    /* color: #333; */
+    color: #5D9732;
 }
 .header.js-header-fixed .navbar svg * {
-    fill: #333;
+    /* fill: #333; */
+    fill: #5D9732;
 }
 .header.js-header-fixed .navbar .burger span {
-    background-color: #333;
+    /* background-color: #333; */
+    background-color: #5D9732;
 }
 .header.js-header-fixed .white-link {
-    color: #333;
+    /* color: #333; */
+    color: #5D9732;
 }
 .header.js-header-fixed .call-link {
     font-size: 15px;
@@ -1444,6 +1469,9 @@ p strong {
 }
 
 @media (max-width: 1440px) {
+    .navbar .nav-item {
+        margin-right: 25px;
+    }
     .btn {
         font-size: 16px;
     }
@@ -1552,7 +1580,7 @@ p strong {
     }
     .header-right__content .search-link,
     .header-right__content .selectric-selectric {
-        margin-right: 25px;
+        margin-right: 15px;
     }
 }
 @media (max-width: 991px) {

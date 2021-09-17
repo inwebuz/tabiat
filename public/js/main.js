@@ -46,7 +46,7 @@ $(function () {
         }
     });
 
-    document.addEventListener('scroll', checkHeaderFixed);
+    // document.addEventListener('scroll', checkHeaderFixed);
 
     $('.selectric').selectric();
 
@@ -95,6 +95,48 @@ $(function () {
                     1200: {
                         slidesPerView: 4,
                         slidesPerGroup: 4
+                    }
+                }
+            });
+        });
+    }
+
+
+    // Swipers
+    let partnersSwiper = $('.partners-swiper');
+    if (partnersSwiper.length) {
+        partnersSwiper.each(function(){
+            let partnersContainer = $(this);
+            new Swiper(partnersContainer.find('.swiper-container')[0], {
+                spaceBetween: 30,
+                autoplay: {
+                    delay: 3000,
+                },
+                loop: true,
+                navigation: {
+                    nextEl: partnersContainer.find('.swiper-button-next')[0],
+                    prevEl: partnersContainer.find('.swiper-button-prev')[0],
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 3,
+                        slidesPerGroup: 1
+                    },
+                    576: {
+                        slidesPerView: 3,
+                        slidesPerGroup: 1
+                    },
+                    768: {
+                        slidesPerView: 4,
+                        slidesPerGroup: 1
+                    },
+                    992: {
+                        slidesPerView: 6,
+                        slidesPerGroup: 1
+                    },
+                    1200: {
+                        slidesPerView: 7,
+                        slidesPerGroup: 1
                     }
                 }
             });
@@ -183,15 +225,15 @@ $(function () {
 
 }); // ready end
 
-$(window).on('load', function(){
-    checkHeaderFixed();
-}); // load end
+// $(window).on('load', function(){
+//     checkHeaderFixed();
+// }); // load end
 
 
-function checkHeaderFixed(){
-    if ($(window).scrollTop() > 75) {
-        $('.header').addClass('js-header-fixed');
-    } else {
-        $('.header').removeClass('js-header-fixed');
-    }
-}
+// function checkHeaderFixed(){
+//     if ($(window).scrollTop() > 75) {
+//         $('.header').addClass('js-header-fixed');
+//     } else {
+//         $('.header').removeClass('js-header-fixed');
+//     }
+// }

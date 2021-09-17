@@ -31,7 +31,7 @@
     </div>
 </nav>
 
-<header class="header">
+<header class="header header-static js-header-fixed">
     <div class="container">
         <div class="header-wrap">
             <div class="logo"><a href="{{ route('home') }}"><img src="{{ $logo }}" alt=""></a></div>
@@ -93,7 +93,7 @@
                         </div>
                     </form>
 
-                    <div id="language-block" class="dropdown mr-4">
+                    <div id="language-block" class="dropdown mr-xl-4 mr-3">
                         <a href="{{ $switcher->getActive()->url }}" class="text-uppercase dropdown-toggle white-link" data-toggle="dropdown">
                             {{  __('main.language_key_' . $switcher->getActive()->key) }}
                         </a>

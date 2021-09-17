@@ -514,7 +514,8 @@ class Helper
     public static function staticText($key, $cacheTime = 21600)
     {
         $locale = app()->getLocale();
-        return Cache::remember($key, $cacheTime, function () use ($key, $locale) {
+        $cacheKey = $locale . '-' . $key;
+        return Cache::remember($cacheKey, $cacheTime, function () use ($key, $locale) {
             return StaticText::where('key', $key)->withTranslation($locale)->first();
         });
     }
