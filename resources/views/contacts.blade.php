@@ -27,14 +27,53 @@
                             <span>{{ $address }}</span>
                         </div>
                     </div>
-                    <div class="media contact-info mb-3">
-                        <div class="media-body">
-                            <svg width="20" height="20">
-                                <use xlink:href="#phone"></use>
-                            </svg>
-                            <span><a href="tel:{{ Helper::phone(setting('contact.phone')) }}" class="black-link">{{ setting('contact.phone') }}</a></span>
+                    @php
+                        $phone = setting('contact.phone');
+                        $phone2 = setting('contact.phone2');
+                        $phone3 = setting('contact.phone3');
+                        $phone4 = setting('contact.phone4');
+                    @endphp
+                    @if ($phone)
+                        <div class="media contact-info mb-2">
+                            <div class="media-body">
+                                <svg width="20" height="20">
+                                    <use xlink:href="#phone"></use>
+                                </svg>
+                                <span><a href="tel:{{ Helper::phone($phone) }}" class="black-link">{{ $phone }}</a></span>
+                            </div>
                         </div>
-                    </div>
+                    @endif
+                    @if ($phone2)
+                        <div class="media contact-info mb-2">
+                            <div class="media-body">
+                                {{-- <svg width="20" height="20">
+                                    <use xlink:href="#phone"></use>
+                                </svg> --}}
+                                <span class="ml-4"><a href="tel:{{ Helper::phone($phone2) }}" class="black-link">{{ $phone2 }}</a></span>
+                            </div>
+                        </div>
+                    @endif
+                    @if ($phone3)
+                        <div class="media contact-info mb-2">
+                            <div class="media-body">
+                                {{-- <svg width="20" height="20">
+                                    <use xlink:href="#phone"></use>
+                                </svg> --}}
+                                <span class="ml-4"><a href="tel:{{ Helper::phone($phone3) }}" class="black-link">{{ $phone3 }}</a></span>
+                            </div>
+                        </div>
+                    @endif
+                    @if ($phone4)
+                        <div class="media contact-info mb-3">
+                            <div class="media-body">
+                                {{-- <svg width="20" height="20">
+                                    <use xlink:href="#phone"></use>
+                                </svg> --}}
+                                <span class="ml-4"><a href="tel:{{ Helper::phone($phone4) }}" class="black-link">{{ $phone4 }}</a></span>
+                            </div>
+                        </div>
+                    @endif
+
                     <div class="media contact-info mb-3">
                         <div class="media-body">
                             <svg width="20" height="20">

@@ -2,6 +2,7 @@
     $phone = setting('contact.phone');
     $phone2 = setting('contact.phone2');
     $phone3 = setting('contact.phone3');
+    $phone4 = setting('contact.phone4');
     $email = setting('contact.email');
     $telegram = setting('contact.telegram');
     $facebook = setting('contact.facebook');
@@ -27,6 +28,9 @@
                                 @endif
                                 @if ($phone3)
                                     <a href="tel:{{ Helper::phone($phone3) }}" class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">{{ $phone3 }}</a>
+                                @endif
+                                @if ($phone4)
+                                    <a href="tel:{{ Helper::phone($phone4) }}" class="fadeInUp wow" data-wow-delay=".4s" data-wow-duration=".5s">{{ $phone4 }}</a>
                                 @endif
                             </div>
                         </li>

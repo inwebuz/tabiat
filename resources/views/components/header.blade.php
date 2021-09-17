@@ -18,6 +18,7 @@
             $phone = setting('contact.phone');
             $phone2 = setting('contact.phone2');
             $phone3 = setting('contact.phone3');
+            $phone4 = setting('contact.phone4');
         @endphp
         @if ($phone)
             <a href="tel:{{ Helper::phone($phone) }}" class="call-link">{{ $phone }}</a>
@@ -27,6 +28,9 @@
         @endif
         @if ($phone3)
             <a href="tel:{{ Helper::phone($phone3) }}" class="call-link">{{ $phone3 }}</a>
+        @endif
+        @if ($phone4)
+            <a href="tel:{{ Helper::phone($phone4) }}" class="call-link">{{ $phone4 }}</a>
         @endif
     </div>
 </nav>
@@ -60,6 +64,9 @@
                                     @endif
                                     @if ($phone3)
                                         <a href="tel:{{ Helper::phone($phone3) }}" class="dropdown-item">{{ $phone3 }}</a>
+                                    @endif
+                                    @if ($phone4)
+                                        <a href="tel:{{ Helper::phone($phone4) }}" class="dropdown-item">{{ $phone4 }}</a>
                                     @endif
                                 </div>
                             </li>
