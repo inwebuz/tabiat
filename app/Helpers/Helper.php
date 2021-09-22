@@ -511,7 +511,7 @@ class Helper
         }
     }
 
-    public static function staticText($key, $cacheTime = 21600)
+    public static function staticText($key, $cacheTime = 300)
     {
         $locale = app()->getLocale();
         $cacheKey = $locale . '-' . $key;
