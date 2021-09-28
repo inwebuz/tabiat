@@ -7,14 +7,13 @@
 
 @section('content')
 
-    @include('partials.page_top', ['bg' => '', 'title' => $category->name]);
-
-    <div class="container">
-        @include('partials.breadcrumbs')
-    </div>
+    @include('partials.page_top', ['bg' => '', 'title' => $category->name])
 
     <section class="section-block pt-4">
         <div class="container">
+
+            @include('partials.breadcrumbs')
+
             <form action="{{ $category->url }}" class="category-main-form">
                 <div class="row">
                     <div class="col-lg-9 order-lg-2 main-block">

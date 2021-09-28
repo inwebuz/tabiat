@@ -8,8 +8,11 @@
 
     @include('partials.page_top', ['title' => $brand->name, 'bg' => $brand->bg])
 
-    <section class="content-block mt-0">
+    <section class="section-block pt-4">
         <div class="container">
+
+            @include('partials.breadcrumbs')
+
             @if(!$products->isEmpty())
                 <div class="products-list">
                     <div class="row">
@@ -29,7 +32,5 @@
             @endif
         </div>
     </section>
-
-    @include('partials.contact_form')
 
 @endsection

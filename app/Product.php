@@ -76,11 +76,6 @@ class Product extends Model
         return $this->belongsTo(Shop::class);
     }
 
-    public function partner()
-    {
-        return $this->belongsTo(Partner::class);
-    }
-
     public function category()
     {
         return $this->belongsTo(Category::class);

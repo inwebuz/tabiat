@@ -1,4 +1,4 @@
-<section class="page-top section-block " @if(!empty($bg)) style="background-image: url({{ $bg }})" @endif>
+<section class="page-top section-block" @if(!empty($bg)) style="background-image: url({{ $bg }})" @endif>
     <div class="dark-overlay"></div>
     <div class="container">
         {{-- @include('partials.breadcrumbs') --}}

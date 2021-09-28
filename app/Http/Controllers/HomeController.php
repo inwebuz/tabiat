@@ -62,7 +62,9 @@ class HomeController extends Controller
             Helper::translation(Helper::staticText('advantages_3')),
         ];
 
-        return view('home', compact('page', 'pageAbout', 'pageCatalog', 'slides', 'homePageCatalog', 'news', 'advantages'));
+        $brands = Brand::active()->orderBy('order')->latest()->take(50)->get()->translate();
+
+        return view('home', compact('page', 'pageAbout', 'pageCatalog', 'slides', 'homePageCatalog', 'news', 'advantages', 'brands'));
     }
 
     public function latestProducts(Category $category)

@@ -8,14 +8,17 @@
 
     @include('partials.page_top', ['title' => $page->short_name_text, 'bg' => $page->bg])
 
-    <section class="content-block mt-0">
+    <section class="section-block pt-4">
         <div class="container">
+
+            @include('partials.breadcrumbs')
+
             @if(!$brands->isEmpty())
                 <div class="brands-list">
                     <div class="row">
                         @foreach($brands as $brand)
                             <div class="col-xl-3 col-lg-3 col-md-6">
-                                <div class="brand-one mb-2">
+                                <div class="brand-one mb-3 h-100 d-flex align-items-center justify-content-center">
                                     <a href="{{ $brand->url }}" class="d-block text-center" title="{{ $brand->name }}">
                                         <img src="{{ $brand->img }}" alt="{{ $brand->name }}" class="img-fluid">
                                     </a>
@@ -32,7 +35,5 @@
             @endif
         </div>
     </section>
-
-    @include('partials.contact_form')
 
 @endsection

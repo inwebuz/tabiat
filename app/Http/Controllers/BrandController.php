@@ -22,7 +22,7 @@ class BrandController extends Controller
     public function index()
     {
         $breadcrumbs = new Breadcrumbs();
-        $page = Helper::translation(Page::where('slug', 'brands')->firstOrFail());
+        $page = Helper::translation(Page::where('id', 6)->firstOrFail());
         $breadcrumbs->addItem(new LinkItem($page->name, $page->url, LinkItem::STATUS_INACTIVE));
 
         $brands = Brand::active()->withTranslation(app()->getLocale())->get()->translate();
@@ -34,7 +34,7 @@ class BrandController extends Controller
     {
         $breadcrumbs = new Breadcrumbs();
 
-        $page = Helper::translation(Page::where('slug', 'brands')->firstOrFail());
+        $page = Helper::translation(Page::where('id', 6)->firstOrFail());
         $breadcrumbs->addItem(new LinkItem($page->name, $page->url));
 
         // quantity per page

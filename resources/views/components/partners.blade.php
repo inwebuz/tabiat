@@ -5,7 +5,9 @@
                 @foreach ($brands as $key => $brand)
                     <div class="swiper-slide">
                         <div>
-                            <img src="{{ $brand->img }}" alt="{{ $brand->name }}" class="img-fluid">
+                            <a href="{{ $brand->url }}" class="d-block">
+                                <img src="{{ $brand->img }}" alt="{{ $brand->name }}" class="img-fluid">
+                            </a>
                         </div>
                     </div>
                 @endforeach
