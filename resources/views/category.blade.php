@@ -1,13 +1,17 @@
 @extends('layouts.app')
 
-@section('seo_title', $category->seo_title ? $category->seo_title : $category->name)
+@section('seo_title', $category->seo_title ?: $category->name)
 @section('meta_description', $category->meta_description)
 @section('meta_keywords', $category->meta_keywords)
 @section('body_class', 'category-page')
 
 @section('content')
 
-    @include('partials.page_top', ['bg' => '', 'title' => $category->name])
+    @php
+        $title = $category->h1_name ?: $category->name;
+    @endphp
+
+    @include('partials.page_top', ['bg' => '', 'title' => $title])
 
     <section class="section-block pt-4">
         <div class="container">

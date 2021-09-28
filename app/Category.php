@@ -35,7 +35,7 @@ class Category extends Model
         'medium' => [400, 400],
     ];
 
-    protected $translatable = ['name', 'slug', 'description', 'body', 'seo_title', 'meta_description', 'meta_keywords'];
+    protected $translatable = ['name', 'h1_name', 'slug', 'description', 'body', 'seo_title', 'meta_description', 'meta_keywords'];
 
     protected $guarded = [];
 

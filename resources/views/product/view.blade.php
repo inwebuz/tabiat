@@ -1,13 +1,17 @@
 @extends('layouts.app')
 
-@section('seo_title', $product->seo_title ? $product->seo_title : $product->name)
+@section('seo_title', $product->seo_title ?: $product->name)
 @section('meta_description', $product->meta_description)
 @section('meta_keywords', $product->meta_keywords)
 @section('body_class', 'product-page')
 
 @section('content')
 
-    @include('partials.page_top', ['bg' => '', 'title' => $category->name]);
+    @php
+        $title = $product->h1_name ?: $product->name;
+    @endphp
+
+    @include('partials.page_top', ['bg' => '', 'title' => $title]);
 
     <div class="container">
         @include('partials.breadcrumbs')
@@ -56,7 +60,7 @@
                     @endif
 
                     <div class="box mt-4">
-                        <button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#contact-modal">
+                        <button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#contact-modal" data-product="{{ $product->id }}">
                             {{ __('main.to_order') }}
                         </button>
                     </div>

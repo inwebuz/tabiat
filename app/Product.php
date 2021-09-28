@@ -44,7 +44,7 @@ class Product extends Model
         'large' => [685, 751],
     ];
 
-    protected $translatable = ['name', 'slug', 'description', 'body', 'specifications', 'seo_title', 'meta_description', 'meta_keywords'];
+    protected $translatable = ['name', 'h1_name', 'slug', 'description', 'body', 'specifications', 'seo_title', 'meta_description', 'meta_keywords'];
 
     protected $guarded = [];
 
