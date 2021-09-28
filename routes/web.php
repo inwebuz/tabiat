@@ -102,6 +102,10 @@ Route::group(
     Route::get('brands', "BrandController@index")->name('brands');
     Route::get('brand/{brand}-{slug}', "BrandController@view")->name('brand');
 
+    // brand view
+    Route::get('partners', "PartnerController@index")->name('partners');
+    Route::get('partners/{partner}-{slug}', "PartnerController@view")->name('partner');
+
     // product view
     Route::get('product/{product}-{slug}', "ProductController@view")->name('product');
     Route::get('sale', "ProductController@sale")->name('sale');

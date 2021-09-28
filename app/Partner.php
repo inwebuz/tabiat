@@ -27,7 +27,7 @@ class Partner extends Model
 
     public function getURLAttribute()
     {
-        return LaravelLocalization::localizeURL('page/' . $this->id);
+        return LaravelLocalization::localizeURL('partner/' . $this->id . '-' . $this->slug);
     }
 
     /**
@@ -44,5 +44,10 @@ class Partner extends Model
     public function getMediumImgAttribute()
     {
         return Voyager::image($this->getThumbnail($this->image, 'medium'));
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 }
