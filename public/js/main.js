@@ -103,6 +103,51 @@ $(function () {
 
 
     // Swipers
+    let homePartnersVerticalSwiper = $('.home-partners-vertical-swiper');
+    if (homePartnersVerticalSwiper.length) {
+        setTimeout (function(){
+            homePartnersVerticalSwiper.each(function(){
+                let homePartnersVerticalContainer = $(this);
+                new Swiper(homePartnersVerticalContainer.find('.swiper-container')[0], {
+                    spaceBetween: 15,
+                    autoplay: {
+                        delay: 3000,
+                    },
+                    direction: "vertical",
+                    loop: true,
+                    // navigation: {
+                    //     nextEl: homePartnersVerticalContainer.find('.swiper-button-next')[0],
+                    //     prevEl: homePartnersVerticalContainer.find('.swiper-button-prev')[0],
+                    // },
+                    breakpoints: {
+                        0: {
+                            slidesPerView: 7,
+                            slidesPerGroup: 1
+                        },
+                        576: {
+                            slidesPerView: 7,
+                            slidesPerGroup: 1
+                        },
+                        768: {
+                            slidesPerView: 7,
+                            slidesPerGroup: 1
+                        },
+                        992: {
+                            slidesPerView: 7,
+                            slidesPerGroup: 1
+                        },
+                        1200: {
+                            slidesPerView: 7,
+                            slidesPerGroup: 1
+                        }
+                    }
+                });
+            }, 1000);
+        })
+
+    }
+
+    // Swipers
     let partnersSwiper = $('.partners-swiper');
     if (partnersSwiper.length) {
         partnersSwiper.each(function(){

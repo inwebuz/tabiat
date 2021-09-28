@@ -7,30 +7,61 @@
 @section('content')
 
     <main class="main">
-        <div class="home-slider-container swiper-container">
-            <div class="home-slider swiper-wrapper">
-                @foreach ($slides as $slide)
-                    <section class="hero section-block swiper-slide" @if($slide->image) style="background-image: url({{ $slide->img }});" @endif>
-                        {{-- <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-                            <source src="/media/video.mp4" type="video/mp4">
-                        </video> --}}
-                        <div class="dark-overlay"></div>
-                        <div class="container">
-                            <div class="row hero-wrap">
-                                <div class="col-lg-12">
-                                    <h2 class="slide-header fadeInUp wow" data-wow-delay="0.5s" data-wow-duration=".3s">{{ $slide->description_top }}</h2>
-                                    <p class="hero-sub__title fadeInUp wow" data-wow-delay="0.7s" data-wow-duration=".3s">{{ $slide->description }}</p>
-                                    @if ($slide->button_text && $slide->url)
-                                        <a href="{{ $slide->url }}" class="down-link fadeInUp wow" data-wow-delay="0.9s" data-wow-duration=".3s">{{ $slide->button_text }}</a>
-                                    @endif
+        <div class="position-relative">
+            <div class="home-slider-container swiper-container">
+                <div class="home-slider swiper-wrapper">
+                    @foreach ($slides as $slide)
+                        <section class="hero section-block swiper-slide" @if($slide->image) style="background-image: url({{ $slide->img }});" @endif>
+                            {{-- <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                                <source src="/media/video.mp4" type="video/mp4">
+                            </video> --}}
+                            <div class="dark-overlay"></div>
+                            <div class="container">
+                                <div class="row hero-wrap">
+                                    <div class="col-9 col-md-10">
+                                        <h2 class="slide-header fadeInUp wow" data-wow-delay="0.5s" data-wow-duration=".3s">{{ $slide->description_top }}</h2>
+                                        <p class="hero-sub__title fadeInUp wow" data-wow-delay="0.7s" data-wow-duration=".3s">{{ $slide->description }}</p>
+                                        @if ($slide->button_text && $slide->url)
+                                            <a href="{{ $slide->url }}" class="down-link fadeInUp wow" data-wow-delay="0.9s" data-wow-duration=".3s">{{ $slide->button_text }}</a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                @endforeach
+                        </section>
+                    @endforeach
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
-            <div class="swiper-pagination"></div>
+
+            <div class="home-partners-vertical-swiper">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        @foreach ($brands as $key => $brand)
+                            <div class="swiper-slide">
+                                <div>
+                                    <a href="{{ $brand->url }}" class="d-block">
+                                        <img src="{{ $brand->medium_img }}" alt="{{ $brand->name }}" class="img-fluid">
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                {{-- <div class="swiper-arrows mt-4">
+                    <div class="swiper-button-prev">
+                        <svg width="18" height="18">
+                            <use xlink:href="#swiper-arrow"></use>
+                        </svg>
+                    </div>
+                    <div class="swiper-button-next">
+                        <svg width="18" height="18">
+                            <use xlink:href="#swiper-arrow"></use>
+                        </svg>
+                    </div>
+                </div> --}}
+            </div>
         </div>
+
 
 
         <section class="about section-block full-section-block">

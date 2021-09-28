@@ -17,7 +17,7 @@ class Brand extends Model
     const STATUS_ACTIVE = 1;
 
     public static $imgSizes = [
-        'medium' => [170, 170],
+        'medium' => [202, 100],
     ];
 
     protected $translatable = ['name', 'description', 'body', 'seo_title', 'meta_description', 'meta_keywords'];
@@ -46,6 +46,14 @@ class Brand extends Model
     public function getImgAttribute()
     {
         return $this->image ? Voyager::image($this->image) : asset('images/brand/no-image.jpg');
+    }
+
+    /**
+     * Get medium image
+     */
+    public function getMediumImgAttribute()
+    {
+        return $this->image ? Voyager::image($this->getThumbnail($this->image, 'medium')) : asset('images/brand/no-image.jpg');
     }
 
     /**
