@@ -1442,6 +1442,9 @@ main.main {
     position: absolute;
     right: 0;
     top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
     width: 160px;
     padding: 50px 10px;
 }
