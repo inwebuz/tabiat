@@ -516,6 +516,13 @@ class DataRowsTableSeeder extends StandardSeeder
                     'details' => $this->image(1000, $imageThumbs),
                 ],
             ],
+            'image_light' => [
+                'method' => 'imageRow',
+                'data' => [
+                    'details' => $this->image(1000, $imageThumbs),
+                    'display_name' => 'Светлая картинка',
+                ],
+            ],
             'background' => [
                 'method' => 'hiddenRow',
             ],

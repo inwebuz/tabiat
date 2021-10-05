@@ -57,6 +57,22 @@ class Brand extends Model
     }
 
     /**
+     * Get main image
+     */
+    public function getImgLightAttribute()
+    {
+        return $this->image_light ? Voyager::image($this->image_light) : asset('images/brand/no-image.jpg');
+    }
+
+    /**
+     * Get medium image
+     */
+    public function getMediumImgLightAttribute()
+    {
+        return $this->image_light ? Voyager::image($this->getThumbnail($this->image_light, 'medium')) : asset('images/brand/no-image.jpg');
+    }
+
+    /**
      * Get url
      */
     public function getURLAttribute()

@@ -40,7 +40,7 @@
                             <div class="swiper-slide">
                                 <div>
                                     <a href="{{ $brand->url }}" class="d-block">
-                                        <img src="{{ $brand->medium_img }}" alt="{{ $brand->name }}" class="img-fluid">
+                                        <img src="{{ $brand->medium_img_light }}" alt="{{ $brand->name }}" class="img-fluid">
                                     </a>
                                 </div>
                             </div>
