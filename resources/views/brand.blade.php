@@ -33,4 +33,12 @@
         </div>
     </section>
 
+    <section class="section-block">
+        <div class="container">
+            <div class="text-block">
+                {!! $brand->body !!}
+            </div>
+        </div>
+    </section>
+
 @endsection
